@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Decety — тестирование сервиса</title>
+    {% load static %}
+    <meta name="description" content="Описание страницы">
+	<meta name="keywords" content="Ключевые, слова, на, странице">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/contacts.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/how-it-works.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/testing.css' %}">
+
+ 	<link rel="shortcut icon" href="{% static 'main/img/favicon.png' %}" type="#">
+
+	<meta property="og:title" content="">
+	<meta property="og:description" content="Описание страницы">
+	<meta property="og:type" content="article">
+	<meta property="og:image" content="#">
+	<meta property="og:site_name" content="">
+</head>
+<body>
+        <header>
+            <div>
+                <button><img src="{% static 'main/img/russian_flag.png'%}" alt="Сменить язык"></button>
+                <a href="http://127.0.0.1:8000"><img src="{% static 'main/img/decety_top_logo.png' %}" alt="Decety — сервис виртуальной примерки одежды"></a>
+                <a></a>
+                <!--  <button><img src="{% static 'main/img/profile.png' %}" alt="Профиль"></button>  -->
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="http://127.0.0.1:8000/how-it-works">Как это работает</a></li>
+                    <li><a href="#">Протестировать</a></li>
+                    <!-- <li><a href="#">Сотрудничество</a></li> -->
+                    <li><a href="http://127.0.0.1:8000/contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!---------- Service section ---------->
+            <section class="service">
+                <h1>Тестирование сервиса</h1>
+                <p>Чтобы протестировать сервис, введите свои персональные мерки</p>
+            </section>
+
+            <!---------- Parameters section ---------->
+            <section class="parameters">
+                <div class="parameter">
+                    <div class="parameter-title">
+                        <h3>Талия</h3>
+                        <p>Скрыть</p>
+                    </div>
+                    <div class="parameter-img">
+                        a
+                    </div>
+                    <div class="parameter-selector">
+                        b
+                    </div>
+                </div>
+            </section>
+
+            <!---------- Clothing test section ---------->
+            <section class="clothing-test">
+                <h2>Начало использования</h2>
+                <p>Выберите нужный размер, чтобы оценить посадку данной рубашки именно на вас</p>
+                <div>
+                    <div class="clothing-selector">
+                        <img src="{% static 'main/img/selector.png' %}" alt="Выберите вещь">
+                    </div>
+                    <div class="clothing-view">
+                        <img src="{% static 'main/img/photo360.png' %}" alt="Просмотр">
+                    </div>
+                    <div class="clothing-about">
+                        <h3>Dsquared2</h3>
+                        <p>рубашка в шотландскую клетку</p>
+                    </div>
+                </div>
+            </section>
+
+            <!---------- Test section ---------->
+            <section class="test">
+                <h2>Оцените посадку других вещей</h2>
+                <div class="test-item">
+                    <div class="decety-test-container">
+                        <img src="{% static 'main/img/ckj-shirt.png' %}" alt="Рубашка с принтом Calvin Klein Jeans">
+                    </div>
+                    <h3>Calvin Klein Jeans</h3>
+                    <p>рубашка с принтом</p>
+                </div>
+                <div class="test-item">
+                    <div class="decety-test-container">
+                        <img src="{% static 'main/img/t-shirt-alg.png' %}" alt="Футболка с контрастным логотипом ÀLG">
+                    </div>
+                    <h3>ÀLG</h3>
+                    <p>футболка с контрастным логотипом</p>
+                </div>
+                <div class="test-item">
+                    <div class="decety-test-container">
+                        <img src="{% static 'main/img/prl-polo.png' %}" alt="Рубашка поло с вышитым логотипом Polo Ralph Lauren">
+                    </div>
+                    <h3>Polo Ralph Lauren</h3>
+                    <p>рубашка поло с вышитым логотипом</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div>
+                <img src="{% static 'main/img/decety-logo-footer.png' %}" alt="Decety">
+            </div>
+            <div>
+                <a href="https://www.youtube.com/channel/UCmImLz6SDuCHlwK089eKGxQ" target="_blank">
+                    <img src="{% static 'main/img/youtube-icon.png' %}" alt="Decety на YouTube">
+                </a>
+                <a href="https://vk.com/decety" target="_blank">
+                    <img src="{% static 'main/img/vk-icon.png' %}" alt="Decety в VK">
+                </a>
+                <a href="" target="_blank">
+                    <img src="{% static 'main/img/facebook-icon.png' %}" alt="Decety на Facebook">
+                </a>
+                <a href="https://medium.com/@decety" target="_blank">
+                    <img src="{% static 'main/img/medium-icon.png' %}" alt="Decety на Medium">
+                </a>
+                <a href="https://www.instagram.com/decety_ru" target="_blank">
+                    <img src="{% static 'main/img/instagram-icon.png' %}" alt="Decety в Instagram">
+                </a>
+            </div>
+            <div>
+                <p><nobr class="phone">+7 (992) 015-93-15</nobr> Илья<br>
+                    <nobr class="phone">+7 (982) 603-10-86</nobr> Марк</p>
+                <p>innotec.decety@gmail.com</p>
+            </div>
+            <div>
+                <p>Decety позволяет оценить посадку вещи до&nbsp;её&nbsp;заказа, облегчая поиск размера и&nbsp;сократить возвраты для интернет-магазинов.</p>
+                <p>Если вам понравилась виртуальная примерочная, расскажите о&nbsp;ней друзьям, а&nbsp;также следите за&nbsp;нами в&nbsp;социальных сетях.</p>
+            </div>
+        </footer>
+</body>
+</html>
