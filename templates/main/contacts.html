@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Decety — контакты</title>
+    {% load static %}
+    <meta name="description" content="Описание страницы">
+	<meta name="keywords" content="Ключевые, слова, на, странице">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/contacts.css' %}">
+
+ 	<link rel="shortcut icon" href="{% static 'main/img/favicon.png' %}" type="#">
+
+	<meta property="og:title" content="">
+	<meta property="og:description" content="Описание страницы">
+	<meta property="og:type" content="article">
+	<meta property="og:image" content="#">
+	<meta property="og:site_name" content="">
+</head>
+<body>
+        <header>
+            <div>
+                <button><img src="{% static 'main/img/russian_flag.png'%}" alt="Сменить язык"></button>
+                <a href="http://127.0.0.1:8000"><img src="{% static 'main/img/decety_top_logo.png' %}" alt="Decety — сервис виртуальной примерки одежды"></a>
+                <a></a>
+                <!--  <button><img src="{% static 'main/img/profile.png' %}" alt="Профиль"></button>  -->
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="http://127.0.0.1:8000/how-it-works">Как это работает</a></li>
+                    <li><a href="http://127.0.0.1:8000/testing">Протестировать</a></li>
+                    <!-- <li><a href="#">Сотрудничество</a></li> -->
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!---------- Contacts section ---------->
+            <section class="personalities">
+                <h1>Наши контакты</h1>
+                <div>
+                    <div class="person">
+                        <img src="{% static 'main/img/avatar_tony.jpeg' %}" alt="Огнёв Илья">
+                        <h2>Огнёв<br>Илья</h2>
+                        <p>Соучредитель Decety<br>
+                        IT руководитель</p>
+                    </div>
+                    <div class="person">
+                        <img src="{% static 'main/img/robert_avatar.jpg' %}" alt="Бикбулатов Марк">
+                        <h2>Бикбулатов<br>Марк</h2>
+                        <p>Соучредитель Decety<br>
+                        Руководитель проекта</p>
+                    </div>
+                </div>
+            </section>
+
+            <!---------- Contacts section ---------->
+            <section class="contacts">
+                <h2>Телефоны</h2>
+                <p>+7 (992) 015-93-15  Илья<br>
+                +7 (982) 603-10-86  Марк</p>
+
+                <h2>E-mail</h2>
+                <p>info@decety.com</p>
+
+                <h2>Адрес</h2>
+                <p>г. Екатеринбург, Россия</p>
+            </section>
+
+            <!---------- Feedback section ---------->
+            <section class="feedback">
+                <h1>Форма обратной связи</h1>
+                <p>Задавайте вопросы, пишите предложения по сотрудничеству или по улучшению сервиса</p>
+
+                <form action="#">
+                    <label><input type="text" placeholder="Имя"></label>
+                    <label><input type="tel" placeholder="Телефон"></label>
+                    <label><input type="email" placeholder="E-mail"></label>
+                    <label><textarea placeholder="Сообщение" rows="4"></textarea></label>
+                    <input type="submit" value="Отправить">
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <div>
+                <img src="{% static 'main/img/decety-logo-footer.png' %}" alt="Decety">
+            </div>
+            <div>
+                <a href="https://www.youtube.com/channel/UCmImLz6SDuCHlwK089eKGxQ" target="_blank">
+                    <img src="{% static 'main/img/youtube-icon.png' %}" alt="Decety на YouTube">
+                </a>
+                <a href="https://vk.com/decety" target="_blank">
+                    <img src="{% static 'main/img/vk-icon.png' %}" alt="Decety в VK">
+                </a>
+                <a href="" target="_blank">
+                    <img src="{% static 'main/img/facebook-icon.png' %}" alt="Decety на Facebook">
+                </a>
+                <a href="https://medium.com/@decety" target="_blank">
+                    <img src="{% static 'main/img/medium-icon.png' %}" alt="Decety на Medium">
+                </a>
+                <a href="https://www.instagram.com/decety_ru" target="_blank">
+                    <img src="{% static 'main/img/instagram-icon.png' %}" alt="Decety в Instagram">
+                </a>
+            </div>
+            <div>
+                <p><nobr class="phone">+7 (992) 015-93-15</nobr> Илья<br>
+                    <nobr class="phone">+7 (982) 603-10-86</nobr> Марк</p>
+                <p>innotec.decety@gmail.com</p>
+            </div>
+            <div>
+                <p>Decety позволяет оценить посадку вещи до&nbsp;её&nbsp;заказа, облегчая поиск размера и&nbsp;сократить возвраты для интернет-магазинов.</p>
+                <p>Если вам понравилась виртуальная примерочная, расскажите о&nbsp;ней друзьям, а&nbsp;также следите за&nbsp;нами в&nbsp;социальных сетях.</p>
+            </div>
+        </footer>
+</body>
+</html>

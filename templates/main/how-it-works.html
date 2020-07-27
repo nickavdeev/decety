@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Decety — как это работает</title>
+    {% load static %}
+    <meta name="description" content="Описание страницы">
+	<meta name="keywords" content="Ключевые, слова, на, странице">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/contacts.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/how-it-works.css' %}">
+
+ 	<link rel="shortcut icon" href="{% static 'main/img/favicon.png' %}" type="#">
+
+	<meta property="og:title" content="">
+	<meta property="og:description" content="Описание страницы">
+	<meta property="og:type" content="article">
+	<meta property="og:image" content="#">
+	<meta property="og:site_name" content="">
+</head>
+<body>
+        <header>
+            <div>
+                <button><img src="{% static 'main/img/russian_flag.png'%}" alt="Сменить язык"></button>
+                <a href="http://127.0.0.1:8000"><img src="{% static 'main/img/decety_top_logo.png' %}" alt="Decety — сервис виртуальной примерки одежды"></a>
+                <a></a>
+                <!--  <button><img src="{% static 'main/img/profile.png' %}" alt="Профиль"></button>  -->
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Как это работает</a></li>
+                    <li><a href="http://127.0.0.1:8000/testing">Протестировать</a></li>
+                    <!-- <li><a href="#">Сотрудничество</a></li> -->
+                    <li><a href="http://127.0.0.1:8000/contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!---------- Service section ---------->
+            <section class="service">
+                <h1>Как это работает?</h1>
+            </section>
+
+            <!---------- Service items section ---------->
+            <section class="service-items">
+                <h2>3 основные состовляющие сервиса</h2>
+                <div class="service-item">
+                    <p>электрический раздвижной манекен</p>
+                    <img src="{% static 'main/img/dummy.png' %}" alt="Электрический раздвижной манекен" style="width: 3vw; padding-top: calc(5px + 2vw);">
+                </div>
+                <div class="service-item">
+                    <p>оборудование для фотографирования</p>
+                    <img src="{% static 'main/img/photo-camera.png' %}" alt="Оборудование для фотографирования">
+                </div>
+                <div class="service-item">
+                    <p>програмное обеспечение</p>
+                    <img src="{% static 'main/img/software.png' %}" alt="Програмное обеспечение">
+                </div>
+            </section>
+
+            <!---------- About block section ---------->
+            <section class="about-block">
+                <div class="about-text">
+                    <h2>Манекен</h2>
+                    <p>Манекен — начальное звено всей цепочки работы сервиса.</p>
+                    <p>Манекен может принимать любое телосложение* за несколько секунд. Его раздвижная сила достаточно мощная, чтобы растягивать самые грубы ткани, например, джинсу.</p>
+                    <p>Для начала на него нужно надеть вещь, которую нужно отсканировать, благодаря конструкции манекена, процесс одевания занимает не более 5 секунд.</p>
+                    <p>Дальнейшая работа сервиса автоматизирована, и происходит с помощью нашего программного обеспечения.</p>
+                </div>
+                <div class="about-images" style="background-color: #ddada8">
+                    Фото манекена
+                </div>
+            </section>
+
+            <!---------- About block section 2 ---------->
+            <section class="about-block about-block-gray">
+                <div class="about-text">
+                    <h2>Программное обеспечение и съёмка</h2>
+                    <p>После того, как манекен одет, можно приступать к расширению манекена. Благодаря нашему алгоритму, манекен будет принимать только такие телосложения, которые возможны для данной вещи (то есть для размера S манекен не будет принимать рост 185 см).</p>
+                    <p>Каждое положение манекена и, соответственно, посадка вещи на нем, будет сниматься нашим оборудованием для сьемки, состоящим из вращающегося стола, камеры и специального программного обеспечения, автоматизирующего данный процесс.</p>
+                    <p>Съемка происходит вокруг всего манекена – создается 360* фото, благодаря чему покупатель может оценить посадку со всех сторон.</p>
+                    <p>Фото, данные о телосложении и о вещи хранятся в базе данных.</p>
+                </div>
+                <div class="about-images" style="background-color: #ddada8">
+                    программа на маке, Илья на переднем плане, стол и фотоаппарат на заднем плане
+                </div>
+            </section>
+
+            <!---------- About block section 3 ---------->
+            <section class="about-block" style="grid-template-columns: 4fr 1fr;">
+                <div class="about-text">
+                    <h2>Вывод результата пользователю</h2>
+                    <p style="text-indent: 0">Всё, что потребуется от покупателя магазина — ввести 5 мерок своего тела.</p>
+                    <p style="text-indent: 0">Эти мерки пользователь сможет снять самостоятельно за несколько минут.</p>
+                </div>
+            </section>
+
+            <!---------- Measurements section ---------->
+            <section class="measurements-howitworks">
+                <img src="{% static 'main/img/measurements.png' %}" alt="5 мерок">
+            </section>
+
+            <!---------- About block section 4 ---------->
+            <section class="about-block">
+                <div class="about-text">
+                    <p style="text-indent: 0">Далее, наш алгоритм подберет такую 360* фотографию, соответсвующую посадке выбранной вещи на манекене, который принял телосложение пользователя**.</p>
+                    <p style="text-indent: 0">Таким образом, посадка, которую увидит покупатель на сайте – это посадка одежды на манекене, по фигуре ему идентичному**.</p>
+                </div>
+                <div class="about-images" style="background-color: #ddada8">
+                    Расширяющийся манекен с одеждой на нем. gif из жизни
+                </div>
+            </section>
+
+            <!---------- Notes section ---------->
+            <section class="about-block notes" style="grid-template-columns: 4fr 1fr;">
+                <div class="about-text">
+                    <p style="text-indent: 0">*любое телосложение из нашего каталога телосложений, включающего в себя 120 фигур.</p>
+                    <p style="text-indent: 0">**с точностью до 4см исходя из 5 введённых мерок.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div>
+                <img src="{% static 'main/img/decety-logo-footer.png' %}" alt="Decety">
+            </div>
+            <div>
+                <a href="https://www.youtube.com/channel/UCmImLz6SDuCHlwK089eKGxQ" target="_blank">
+                    <img src="{% static 'main/img/youtube-icon.png' %}" alt="Decety на YouTube">
+                </a>
+                <a href="https://vk.com/decety" target="_blank">
+                    <img src="{% static 'main/img/vk-icon.png' %}" alt="Decety в VK">
+                </a>
+                <a href="" target="_blank">
+                    <img src="{% static 'main/img/facebook-icon.png' %}" alt="Decety на Facebook">
+                </a>
+                <a href="https://medium.com/@decety" target="_blank">
+                    <img src="{% static 'main/img/medium-icon.png' %}" alt="Decety на Medium">
+                </a>
+                <a href="https://www.instagram.com/decety_ru" target="_blank">
+                    <img src="{% static 'main/img/instagram-icon.png' %}" alt="Decety в Instagram">
+                </a>
+            </div>
+            <div>
+                <p><nobr class="phone">+7 (992) 015-93-15</nobr> Илья<br>
+                    <nobr class="phone">+7 (982) 603-10-86</nobr> Марк</p>
+                <p>innotec.decety@gmail.com</p>
+            </div>
+            <div>
+                <p>Decety позволяет оценить посадку вещи до&nbsp;её&nbsp;заказа, облегчая поиск размера и&nbsp;сократить возвраты для интернет-магазинов.</p>
+                <p>Если вам понравилась виртуальная примерочная, расскажите о&nbsp;ней друзьям, а&nbsp;также следите за&nbsp;нами в&nbsp;социальных сетях.</p>
+            </div>
+        </footer>
+</body>
+</html>
