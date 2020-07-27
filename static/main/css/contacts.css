@@ -1,0 +1,114 @@
+/* ---------- Personalities section ---------- */
+.personalities {
+    padding: calc(5px + 2.5vw) calc(10px + 8vw);
+}
+.personalities h1 {
+    text-align: center;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 2.25vw;
+    padding-bottom: 2vw;
+}
+.personalities div {
+    display: flex;
+    justify-content: center;
+}
+.personalities .person {
+    display: block;
+    width: 25vw;
+    text-align: center;
+    padding: 2vw;
+}
+.personalities .person img {
+    width: 15vw;
+    height: 15vw;
+    background-position:center;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.personalities .person h2 {
+    font-style: italic;
+    font-weight: 600;
+    font-size: 2.5vw;
+    margin-bottom: 1vw;
+    margin-top: 1vw;
+}
+
+/* ---------- Contacts section ---------- */
+.contacts {
+    background-color: #FAFAFA;
+    padding: calc(5px + 1.5vw) calc(5px + 20vw);
+}
+.contacts h2 {
+    font-weight: 600;
+    padding-left: calc(20px + 5vw);
+    padding-bottom: calc(5px + 0.5vw);
+}
+.contacts a {
+    width: 20px;
+    position: absolute;
+    left: 22.5vw;
+    top: 42.5vw;
+}
+.contacts a img {
+    width: 20px;
+}
+.contacts p {
+    padding-left: calc(20px + 5vw);
+    padding-bottom: calc(5px + 1.5vw);
+    font-weight: 100;
+}
+.contacts img {
+    width: calc(75vw);
+    padding-left: calc(5px + 1.5vw);
+}
+
+/* ---------- Feedback section ---------- */
+.feedback {
+    padding: calc(5px + 2.5vw) calc(10px + 8vw) 0;
+    text-align: center;
+}
+.feedback h1 {
+    text-align: center;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 2.25vw;
+    padding-bottom: 2vw;
+}
+.feedback form {
+    padding: calc(5px + 2.5vw) calc(5px + 20vw) 0;
+}
+.feedback input, .feedback textarea {
+    width: 35vw;
+    padding: 0.75vw 1.75vw;
+    margin-bottom: 2vw;
+    font-size: 1.25vw;
+    outline: none;
+    border: 1px silver solid;
+    border-radius: 3px;
+    transition-property: border;
+    transition-duration: 0.3s;
+}
+.feedback input:focus, .feedback textarea:focus {
+    border: 1px #2a2b2b solid;
+}
+.feedback textarea {
+    resize: none;
+}
+.feedback input[type="submit"] {
+    color: white;
+    background-color: #3d3e3e;
+    border-radius: 5px;
+    border: none;
+    width: 15vw;
+    cursor: pointer;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+}
+.feedback input[type="submit"]:hover {
+    background-color: #2a2b2b;
+}
+
+.feedback input::placeholder, .feedback textarea::placeholder {
+    color: #b4b4b4;
+}

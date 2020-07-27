@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Decety — сервис виртуальной примерки одежды</title>
+    {% load static %}
+    <meta name="description" content="Описание страницы">
+	<meta name="keywords" content="Ключевые, слова, на, странице">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/index.css' %}">
+
+ 	<link rel="shortcut icon" href="{% static 'main/img/favicon.png' %}" type="#">
+
+	<meta property="og:title" content="">
+	<meta property="og:description" content="Описание страницы">
+	<meta property="og:type" content="article">
+	<meta property="og:image" content="#">
+	<meta property="og:site_name" content="">
+</head>
+<body>
+        <header>
+            <div>
+                <button><img src="{% static 'main/img/russian_flag.png'%}" alt="Сменить язык"></button>
+                <a href="#"><img src="{% static 'main/img/decety_top_logo.png' %}" alt="Decety — сервис виртуальной примерки одежды"></a>
+                <button><img src="{% static 'main/img/profile.png' %}" alt="Профиль"></button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Как это работает</a></li>
+                    <li><a href="#">Протестировать</a></li>
+                    <li><a href="#">Сотрудничество</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!---------- About section ---------->
+            <section class="about">
+                <div class="about-header">
+                    <h1>Decety&nbsp;— сервис виртуальной примерки одежды</h1>
+                    <p>Благодаря сервису вы&nbsp;сможете рассмотреть со&nbsp;всех сторон посадку выбранной вещи именно на&nbsp;вас до&nbsp;её&nbsp;заказа, в&nbsp;режиме онлайн.</p>
+                </div>
+                <div class="decety-test">
+                    <img src="{% static 'main/img/white-shirt.png' %}" alt="Пример использования сервиса">
+                </div>
+            </section>
+
+            <!---------- Measurements section ---------->
+            <section class="measurements">
+                <h2>5 мерок</h2>
+                <a href="#"><img src="{% static 'main/img/info.png' %}" alt="Протестировать сервис"></a>
+                <p>Всё, что необходимо для получения посадки одежды именно на вас</p>
+                <img src="{% static 'main/img/measurements.png' %}" alt="5 мерок">
+            </section>
+
+            <!---------- Visualization section ---------->
+            <section class="visualization">
+                <div class="visualization-header">
+                    <h2>Новый уровень онлайн&#8209;шопинга</h2>
+                    <p>Больше не&nbsp;нужно ходить по&nbsp;магазинам или ждать доставки одежды, чтобы примерить её&nbsp;— теперь вы&nbsp;можете сделать это онлайн.</p>
+                </div>
+                <div class="visualization-decety-test">
+                    <img src="{% static 'main/img/white-shirt.png' %}" alt="Пример использования сервиса">
+                </div>
+            </section>
+
+            <!---------- Advantages section ---------->
+            <section class="advantages">
+                <div class="advantage-item">
+                    <img src="{% static 'main/img/rocket.png' %}" alt="Decety значительно ускоряет процесс покупок вещей">
+                    <p>Decety значительно ускоряет процесс покупок вещей</p>
+                </div>
+                <div class="advantage-item">
+                    <img src="{% static 'main/img/confetti.png' %}" alt="С Decety процесс покупок становится увлекательным, приятным и простым">
+                    <p>С&nbsp;Decety процесс покупок становится увлекательным, приятным и&nbsp;простым</p>
+                </div>
+                <div class="advantage-item">
+                    <img src="{% static 'main/img/bullseye-with-arrow.png' %}" alt="Decety показывает посадку вещи с точностью >90%">
+                    <p>Decety показывает посадку вещи с&nbsp;точностью &gt;90%</p>
+                </div>
+            </section>
+
+            <!---------- Test section ---------->
+            <section class="test">
+                <h2>Протестируйте сервис:</h2>
+                <div class="test-item">
+                    <div class="decety-test-container">
+                        <img src="{% static 'main/img/shirt-calvin-klein.png' %}" alt="Рубашка с принтом Calvin Klein Jeans">
+                    </div>
+                    <h3>Calvin Klein Jeans</h3>
+                    <p>рубашка с принтом</p>
+                </div>
+                <div class="test-item">
+                    <div class="decety-test-container">
+                        <img src="{% static 'main/img/t-shirt-alg.png' %}" alt="Футболка с контрастным логотипом ÀLG">
+                    </div>
+                    <h3>ÀLG</h3>
+                    <p>футболка с контрастным логотипом</p>
+                </div>
+                <div class="test-item">
+                    <div class="decety-test-container">
+                        <img src="{% static 'main/img/polo.png' %}" alt="Рубашка поло с вышитым логотипом Polo Ralph Lauren">
+                    </div>
+                    <h3>Polo Ralph Lauren</h3>
+                    <p>рубашка поло с вышитым логотипом</p>
+                </div>
+            </section>
+
+            <!---------- History section ---------->
+            <section class="history">
+                <div class="history-header">
+                    <h2>История создания</h2>
+                    <img src="{% static 'main/img/youtube-logo.png' %}" alt="Видео YouTube">
+                    <p>Мы часто покупаем одежду и столкнулись с тем, что найти одежду подходящего размера бывает трудно и долго.</p>
+                    <p>Чтобы облегчить эту задачу, мы решили создать сервис виртуальной примерочной.</p>
+                </div>
+                <div class="video-container">
+					<iframe src="https://www.youtube.com/embed/BjdVeo_VH7g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div>
+                <img src="{% static 'main/img/decety-logo-footer.png' %}" alt="Decety">
+            </div>
+            <div>
+                <a href="https://www.youtube.com/channel/UCmImLz6SDuCHlwK089eKGxQ" target="_blank">
+                    <img src="{% static 'main/img/youtube-icon.png' %}" alt="Decety на YouTube">
+                </a>
+                <a href="https://vk.com/decety" target="_blank">
+                    <img src="{% static 'main/img/vk-icon.png' %}" alt="Decety в VK">
+                </a>
+                <a href="" target="_blank">
+                    <img src="{% static 'main/img/facebook-icon.png' %}" alt="Decety на Facebook">
+                </a>
+                <a href="https://medium.com/@decety" target="_blank">
+                    <img src="{% static 'main/img/medium-icon.png' %}" alt="Decety на Medium">
+                </a>
+                <a href="https://www.instagram.com/decety_ru" target="_blank">
+                    <img src="{% static 'main/img/instagram-icon.png' %}" alt="Decety в Instagram">
+                </a>
+            </div>
+            <div>
+                <p><nobr class="phone">+7 (992) 015-93-15</nobr> Илья<br>
+                    <nobr class="phone">+7 (982) 603-10-86</nobr> Марк</p>
+                <p>innotec.decety@gmail.com</p>
+            </div>
+            <div>
+                <p>Decety позволяет оценить посадку вещи до&nbsp;её&nbsp;заказа, облегчая поиск размера и&nbsp;сократить возвраты для интернет-магазинов.</p>
+                <p>Если вам понравилась виртуальная примерочная, расскажите о&nbsp;ней друзьям, а&nbsp;также следите за&nbsp;нами в&nbsp;социальных сетях.</p>
+            </div>
+        </footer>
+</body>
+</html>
