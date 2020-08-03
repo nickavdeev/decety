@@ -1,19 +1,104 @@
 /* ---------- Parameters section ---------- */
+.parameters {
+    text-align: center;
+    padding-bottom: 5vw;
+}
+.parameters > form > input[type="submit"] {
+    border: none;
+    background-color: #1C1C1C;
+    color: white;
+    font-size: 1.5vw;
+    border-radius: calc(5px + 2vw);
+    padding: calc(5px + 0.5vw) calc(5px + 3vw);
+    cursor: pointer;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+}
+.parameters > form > input[type="submit"]:hover {
+    background-color: #323232;
+}
 .parameter {
-    background-color: #25b5ff;
-    padding: calc(5px + 2.5vw) calc(5px + 11.5vw);
+    padding: calc(5px + 5vw) calc(5px + 15vw);
     display: grid;
-    grid-template-columns: 1fr 2fr 3fr;
-    grid-column-gap: 2vw;
+    grid-template-columns: 1fr 1.5fr 3fr;
+    grid-column-gap: 5vw;
+}
+.parameter-grey {
+    background-color: #fafafa;
 }
 .parameter-title {
-    background-color: #33ffd3;
+}
+.parameter-title > h3 {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 2.25vw;
+}
+.parameter-title > button {
+    margin-top: 0.75vw;
+    color: #b4b4b4;
+    font-size: 1.25vw;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 .parameter-img {
-    background-color: #b6a4ff;
+}
+.parameter-img img {
+    width: 15vw;
 }
 .parameter-selector {
-    background-color: #ddada8;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0 8vw 0 0;
+    height: 20vw;
+}
+.parameter-selector > h4 {
+    font-size: 2.5vw;
+}
+.parameter-selector > button {
+    width: 3vw;
+    height: 3vw;
+    font-size: 2.5vw;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+.parameter-selector > p {
+    flex: 0 0 100%;
+    font-size: 1.25vw;
+}
+.parameter-selector > span {
+    flex: 0 0 100%;
+    font-size: 1.25vw;
+    text-align: center;
+}
+.parameter-selector > input[type="range"] {
+    flex: 0 0 100%;
+    background: transparent;
+    cursor: pointer;
+}
+input[type='range'] {
+    overflow: hidden;
+    -webkit-appearance: none;
+    outline: none;
+}
+input[type='range']::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    color: #fafafa;
+    height: 0.2vw;
+    background-color: #c7c7c7;
+    border-radius: 5px;
+    margin: 0 1vw;
+
+}
+input[type='range']::-webkit-slider-thumb {
+    width: 0.42vw;
+    height: 0.4vw;
+    -webkit-appearance: none;
+    background: #1C1C1C;
+    box-shadow: -0.4vw 0 0 0.4vw #1C1C1C;
+    border-radius: calc(5px + 2vw);
 }
 
 /* ---------- Clothing test section ---------- */
