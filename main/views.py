@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+
+from .forms import RequestForm
 
 
 def index(request):
@@ -15,3 +18,16 @@ def how_it_works(request):
 
 def testing(request):
     return render(request, 'main/testing.html')
+
+
+def get_parameters(request):
+    if request.method == 'POST':
+        data = request.POST
+        print(data)
+
+        return HttpResponseRedirect('#clothing-test')
+
+    else:
+        form = RequestForm()
+
+    return render(request, '../templates/main/testing.html', {'form': form})
