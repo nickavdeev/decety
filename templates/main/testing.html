@@ -28,13 +28,36 @@
         }
 
         function changeSize(parameter, symbol) {
-            let currentSize = parseInt(document.getElementById("waist-size").innerText);
-            if (symbol === "+")
-                document.getElementById(parameter + "-size").innerText
-                    = currentSize + 1;
-            else
-                document.getElementById(parameter + "-size").innerText
-                    = currentSize - 1;
+            let currentSize = parseInt(document.getElementById(parameter + "-size").innerText);
+            let minSize = parseInt(document.getElementById(parameter).min);
+            let maxSize = parseInt(document.getElementById(parameter).max);
+
+            if (symbol === "+" && currentSize !== maxSize)
+            {
+                document.getElementById(parameter + "-size").innerText = currentSize + 1;
+                document.getElementById(parameter).value = currentSize + 1;
+            }
+            if (symbol === "-" && currentSize !== minSize) {
+                document.getElementById(parameter + "-size").innerText = currentSize - 1;
+                document.getElementById(parameter).value = currentSize - 1;
+            }
+        }
+
+        function hide(params) {
+            document.getElementById("hide-" + params).style.display = "none";
+            document.getElementById("show-" + params).style.cssText = "display: block; margin-left: 2.5vw";
+
+            document.getElementById("img-" + params).style.display = "none";
+            document.getElementById("parameter-" + params).style.display = "none";
+            document.getElementById("div-" + params).style.padding = "calc(5px + 2vw) calc(5px + 15vw)";
+        }
+        function show(params) {
+            document.getElementById("hide-" + params).style.cssText = "display: block; margin-left: 3vw";
+            document.getElementById("show-" + params).style.display = "none";
+
+            document.getElementById("img-" + params).style.display = "block";
+            document.getElementById("parameter-" + params).style.display = "flex";
+            document.getElementById("div-" + params).style.padding = "calc(5px + 5vw) calc(5px + 15vw)";
         }
     </script>
 </head>
@@ -66,94 +89,104 @@
             <!---------- Parameters section ---------->
             <section class="parameters">
                 <form action="get-parameters" method='POST'>
-                    {% csrf_token %}
-                    <div class="parameter">
+
+                    <div class="parameter" id="div-waist">
                         <div class="parameter-title">
                             <h3>Талия</h3>
-                            <button>Скрыть</button>
+                            <button onclick="hide('waist')" type="button" id="hide-waist">Скрыть</button>
+                            <button onclick="show('waist')" type="button" id="show-waist" style="display: none">Показать</button>
                         </div>
-                        <div class="parameter-img">
+                        <div class="parameter-img" id="img-waist">
                             <img src="{% static 'main/img/waist.png' %}" alt="Талия">
                         </div>
-                        <div class="parameter-selector">
+                        <div class="parameter-selector" id="parameter-waist">
                             <p>Следует наложить ленту горизонтально вокруг самого узкого места фигуры.</p>
-                            <button onclick="changeSize('waist', '-')">-</button>
-                            <h4 id="waist-size">50</h4>
-                            <button onclick="changeSize('waist', '+')">+</button>
+                            <button onclick="changeSize('waist', '-')" type="button">—</button>
+                            <h4 id="waist-size">115</h4>
+                            <button onclick="changeSize('waist', '+')" type="button">+</button>
                             <span>см</span>
-                            <label for="waist"></label><input type="range" name="waist" oninput="setSize('waist')" min="0" max="100" step="1" value="50" id="waist">
-                        </div>
-                    </div>
-                    <div class="parameter parameter-grey">
-                        <div class="parameter-title">
-                            <h3>Бёдра</h3>
-                            <button>Скрыть</button>
-                        </div>
-                        <div class="parameter-img">
-                            <img src="{% static 'main/img/hips.png' %}" alt="Бёдра">
-                        </div>
-                        <div class="parameter-selector">
-                            <p>Нужно измерить полный обхват бедер, с учетом выступа живота спереди и по самым выпуклым точкам ягодиц сзади.</p>
-                            <button onclick="changeSize('hips', '-')">-</button>
-                            <h4 id="hips-size">50</h4>
-                            <button onclick="changeSize('hips', '+')">+</button>
-                            <span>см</span>
-                            <label for="hips"></label><input type="range" name="hips" oninput="setSize('hips')" min="0" max="100" step="1" value="50" id="hips">
-                        </div>
-                    </div>
-                    <div class="parameter">
-                        <div class="parameter-title">
-                            <h3>Рука</h3>
-                            <button>Скрыть</button>
-                        </div>
-                        <div class="parameter-img">
-                            <img src="{% static 'main/img/hand.png' %}" alt="Рука">
-                        </div>
-                        <div class="parameter-selector">
-                            <p>Лента должна проходить горизонтально вокруг самой широкой части руки.</p>
-                            <button onclick="changeSize('hand', '-')">-</button>
-                            <h4 id="hand-size">50</h4>
-                            <button onclick="changeSize('hand', '+')">+</button>
-                            <span>см</span>
-                            <label for="hand"></label><input type="range" name="hand" oninput="setSize('hand')" min="0" max="100" step="1" value="50" id="hand">
-                        </div>
-                    </div>
-                    <div class="parameter parameter-grey">
-                        <div class="parameter-title">
-                            <h3>Грудь</h3>
-                            <button>Скрыть</button>
-                        </div>
-                        <div class="parameter-img">
-                            <img src="{% static 'main/img/chest.png' %}" alt="Грудь">
-                        </div>
-                        <div class="parameter-selector">
-                            <p>Лента должна проходить горизонтально вокруг туловища по наиболее выступающим точкам груди.</p>
-                            <button onclick="changeSize('chest', '-')">-</button>
-                            <h4 id="chest-size">50</h4>
-                            <button onclick="changeSize('chest', '+')">+</button>
-                            <span>см</span>
-                            <label for="chest"></label><input type="range" name="chest" oninput="setSize('chest')" min="0" max="100" step="1" value="50" id="chest">
-                        </div>
-                    </div>
-                    <div class="parameter">
-                        <div class="parameter-title">
-                            <h3>Рост</h3>
-                            <button>Скрыть</button>
-                        </div>
-                        <div class="parameter-img">
-                            <img src="{% static 'main/img/height.png' %}" alt="Рост">
-                        </div>
-                        <div class="parameter-selector">
-                            <p>Чтобы измерить рост, вам нужно опустить руки вдоль тела, расправить плечи, выпрямить спину. Ноги должны быть выпрямлены.</p>
-                            <button onclick="changeSize('height', '-')">-</button>
-                            <h4 id="height-size">50</h4>
-                            <button onclick="changeSize('height', '+')">+</button>
-                            <span>см</span>
-                            <label for="height"></label><input type="range" name="height" oninput="setSize('height')" min="0" max="100" step="1" value="50" id="height">
+                            <label for="waist"></label><input type="range" name="waist" oninput="setSize('waist')" min="74" max="160" value="115" step="1" id="waist">
                         </div>
                     </div>
 
-                    <input type="submit" value="Отправить заявку" id="submit"/>
+                    <div class="parameter parameter-grey" id="div-hips">
+                        <div class="parameter-title">
+                            <h3>Бёдра</h3>
+                            <button onclick="hide('hips')" type="button" id="hide-hips">Скрыть</button>
+                            <button onclick="show('hips')" type="button" id="show-hips" style="display: none">Показать</button>
+                        </div>
+                        <div class="parameter-img" id="img-hips">
+                            <img src="{% static 'main/img/hips.png' %}" alt="Бёдра">
+                        </div>
+                        <div class="parameter-selector" id="parameter-hips">
+                            <p>Нужно измерить полный обхват бедер, с учетом выступа живота спереди и по самым выпуклым точкам ягодиц сзади.</p>
+                            <button onclick="changeSize('hips', '-')" type="button">—</button>
+                            <h4 id="hips-size">125</h4>
+                            <button onclick="changeSize('hips', '+')" type="button">+</button>
+                            <span>см</span>
+                            <label for="hips"></label><input type="range" name="hips" oninput="setSize('hips')" min="90" max="160" value="125" step="1" id="hips">
+                        </div>
+                    </div>
+
+                    <div class="parameter" id="div-hand">
+                        <div class="parameter-title">
+                            <h3>Рука</h3>
+                            <button onclick="hide('hand')" type="button" id="hide-hand">Скрыть</button>
+                            <button onclick="show('hand')" type="button" id="show-hand" style="display: none">Показать</button>
+                        </div>
+                        <div class="parameter-img" id="img-hand">
+                            <img src="{% static 'main/img/hand.png' %}" alt="Рука">
+                        </div>
+                        <div class="parameter-selector" id="parameter-hand">
+                            <p>Лента должна проходить горизонтально вокруг самой широкой части руки.</p>
+                            <button onclick="changeSize('hand', '-')" type="button">—</button>
+                            <h4 id="hand-size">40</h4>
+                            <button onclick="changeSize('hand', '+')" type="button">+</button>
+                            <span>см</span>
+                            <label for="hand"></label><input type="range" name="hand" oninput="setSize('hand')" min="20" max="60" value="40" step="1" id="hand">
+                        </div>
+                    </div>
+
+                    <div class="parameter parameter-grey" id="div-chest">
+                        <div class="parameter-title">
+                            <h3>Грудь</h3>
+                            <button onclick="hide('chest')" type="button" id="hide-chest">Скрыть</button>
+                            <button onclick="show('chest')" type="button" id="show-chest" style="display: none">Показать</button>
+                        </div>
+                        <div class="parameter-img" id="img-chest">
+                            <img src="{% static 'main/img/chest.png' %}" alt="Грудь">
+                        </div>
+                        <div class="parameter-selector" id="parameter-chest">
+                            <p>Лента должна проходить горизонтально вокруг туловища по наиболее выступающим точкам груди.</p>
+                            <button onclick="changeSize('chest', '-')" type="button">—</button>
+                            <h4 id="chest-size">120</h4>
+                            <button onclick="changeSize('chest', '+')" type="button">+</button>
+                            <span>см</span>
+                            <label for="chest"></label><input type="range" name="chest" oninput="setSize('chest')" min="88" max="150" value="120" step="1" id="chest">
+                        </div>
+                    </div>
+
+                    <div class="parameter" id="div-height">
+                        <div class="parameter-title">
+                            <h3>Рост</h3>
+                            <button onclick="hide('height')" type="button" id="hide-height">Скрыть</button>
+                            <button onclick="show('height')" type="button" id="show-height" style="display: none">Показать</button>
+                        </div>
+                        <div class="parameter-img" id="img-height">
+                            <img src="{% static 'main/img/height.png' %}" alt="Рост">
+                        </div>
+                        <div class="parameter-selector" id="parameter-height">
+                            <p>Чтобы измерить рост, вам нужно опустить руки вдоль тела, расправить плечи, выпрямить спину. Ноги должны быть выпрямлены.</p>
+                            <button onclick="changeSize('height', '-')" type="button">—</button>
+                            <h4 id="height-size">175</h4>
+                            <button onclick="changeSize('height', '+')" type="button">+</button>
+                            <span>см</span>
+                            <label for="height"></label><input type="range" name="height" oninput="setSize('height')" min="165" max="190" value="175" step="1" id="height">
+                        </div>
+                    </div>
+
+                    {% csrf_token %}
+                    <input type="submit" value="Отправить данные" id="submit"/>
                 </form>
             </section>
 
