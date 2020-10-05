@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
 
 from .forms import RequestForm
 
@@ -17,16 +16,26 @@ def how_it_works(request):
 
 
 def testing(request):
-    return render(request, 'main/testing.html')
-
-
-def get_parameters(request):
+    default_parameters = {'waist': '115', 'thighs': '125',
+                          'biceps': '40', 'chest': '120',
+                          'height': '175', 'parameters_display': 'block',
+                          'hide_display': 'inline', 'show_display': 'none'}
     if request.method == 'POST':
-        data = request.POST
-        print(data)
+        return render(request, 'main/testing.html', default_parameters)
 
-        return HttpResponseRedirect('#clothing-test')
-
+    elif request.method == 'GET':
+        data = request.GET
+        if len(data) == 0:
+            return render(request, 'main/testing.html', default_parameters)
+        else:
+            return render(request, 'main/testing.html',
+                          {'waist':     data['waist'],
+                           'thighs':    data['thighs'],
+                           'biceps':    data['biceps'],
+                           'chest':     data['chest'],
+                           'height':    data['height'],
+                           'parameters_display':   'none',
+                           'hide_display': 'none', 'show_display': 'inline'})
     else:
         form = RequestForm()
 

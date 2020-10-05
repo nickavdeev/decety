@@ -1,21 +1,21 @@
 @font-face {
     font-family: "Avenir Next";
-    src: url("fonts/AvenirNextCyr-Regular.ttf") format('truetype');
+    src: url("../fonts/AvenirNextCyr-Regular.ttf") format('truetype');
     font-weight: 100;
 }
 @font-face {
     font-family: "Avenir Next";
-    src: url("fonts/AvenirNextCyr-Medium.ttf") format('truetype');
+    src: url("../fonts/AvenirNextCyr-Medium.ttf") format('truetype');
     font-weight: 300;
 }
 @font-face {
     font-family: "Avenir Next";
-    src: url("fonts/AvenirNextCyr-Demi.ttf") format('truetype');
+    src: url("../fonts/AvenirNextCyr-Demi.ttf") format('truetype');
     font-weight: 600;
 }
 @font-face {
     font-family: "Avenir Next";
-    src: url("fonts/AvenirNextCyr-Bold.ttf") format('truetype');
+    src: url("../fonts/AvenirNextCyr-Bold.ttf") format('truetype');
     font-weight: 900;
 }
 
@@ -122,8 +122,8 @@ main {
     padding-bottom: calc(5px + 1vw);
 }
 .about-header p {
-    font-weight: 300;
-    font-size: 1.1vw;
+    font-weight: 600;
+    font-size: 1.25vw;
     padding-right: calc(5px + 6vw);
 }
 .decety-test {
@@ -166,8 +166,8 @@ main {
 /* ---------- Visualization section ---------- */
 .visualization{
     display: grid;
-    grid-template-columns: 8fr 7fr;
-    padding: calc(5px + 3.5vw) calc(5px + 10vw);
+    grid-template-columns: 8fr 6fr;
+    padding: calc(5px + 3.5vw) calc(5px + 8vw);
 }
 .visualization-header {
     display: flex;
@@ -178,12 +178,12 @@ main {
 .visualization-header h2 {
     font-style: italic;
     font-weight: 600;
-    font-size: 2vw;
+    font-size: 2.5vw;
     padding-bottom: calc(5px + 1vw);
 }
 .visualization-header p {
     font-weight: 100;
-    font-size: 1vw;
+    font-size: 1.25vw;
     padding-right: calc(5px + 6vw);
 }
 .visualization-decety-test {

@@ -21,6 +21,9 @@
 	<meta property="og:image" content="#">
 	<meta property="og:site_name" content="">
 
+    <script src="https://cdn.scaleflex.it/plugins/js-cloudimage-360-view/2.5.0/js-cloudimage-360-view.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script>
         function setSize(parameter) {
             document.getElementById(parameter + "-size").innerText
@@ -43,21 +46,15 @@
             }
         }
 
-        function hide(params) {
-            document.getElementById("hide-" + params).style.display = "none";
-            document.getElementById("show-" + params).style.cssText = "display: block; margin-left: 2.5vw";
-
-            document.getElementById("img-" + params).style.display = "none";
-            document.getElementById("parameter-" + params).style.display = "none";
-            document.getElementById("div-" + params).style.padding = "calc(5px + 2vw) calc(5px + 15vw)";
+        function hide() {
+            document.getElementById("hide").style.display = "none";
+            document.getElementById("show").style.display = "inline";
+            document.getElementById("parameters-form").style.display = "none";
         }
-        function show(params) {
-            document.getElementById("hide-" + params).style.cssText = "display: block; margin-left: 3vw";
-            document.getElementById("show-" + params).style.display = "none";
-
-            document.getElementById("img-" + params).style.display = "block";
-            document.getElementById("parameter-" + params).style.display = "flex";
-            document.getElementById("div-" + params).style.padding = "calc(5px + 5vw) calc(5px + 15vw)";
+        function show() {
+            document.getElementById("hide").style.display = "inline";
+            document.getElementById("show").style.display = "none";
+            document.getElementById("parameters-form").style.display = "block";
         }
     </script>
 </head>
@@ -83,18 +80,80 @@
             <!---------- Service section ---------->
             <section class="service">
                 <h1>Тестирование сервиса</h1>
-                <p>Чтобы протестировать сервис, введите свои персональные мерки</p>
+            </section>
+
+            <!---------- Clothing test section ---------->
+            <section class="clothing-test">
+                <a name="test"></a>
+                <div>
+                    <div class="clothing-selector">
+                        <img src="https://decety.com/api/image/pQzvARVqzgjr" alt="Выберите вещь">
+                    </div>
+                    <div id="360-view"
+                             class="cloudimage-360 clothing-view"
+                             data-bottom-circle
+                             data-bottom-circle-offset="5"
+                             data-keys
+                             data-box-shadow="none"
+                             data-responsive="scaleflex"
+                             data-spin-reverse>
+                            <script type="text/javascript">
+                                let data = new FormData();
+                                data.append("shop_id",      9302);
+                                data.append("id",           "d23kda|Uniqlo");
+                                data.append("color",        "");
+                                data.append("size",         "M");
+                                data.append("description",  "Blue t-shirt");
+                                data.append("d1",           1800);
+                                data.append("d2",           1060.5);
+                                data.append("d3",           1003.1);
+                                data.append("d4",           1100.7);
+                                data.append("d5",           352.1);
+
+                                $.ajax({
+                                    url: 'https://decety.com/api/get',
+                                    data: data,
+                                    processData: false,
+                                    contentType: false,
+                                    type: 'POST',
+                                    success: function(data){
+                                        data = JSON.parse(data);
+                                        let image_list;
+                                        if (data.error === '') {
+                                            console.log(data.result);
+                                            image_list = data.result.map(function (image_id) {
+                                                // return 'https://decety.com/api/image-small/' + image_id;
+                                                return 'https://decety.com/api/image/' + image_id;
+                                            });
+
+                                            $('#360-view').attr('data-image-list', JSON.stringify(image_list));
+                                            window.CI360.init();
+                                        } else {
+                                            // error
+                                        }
+                                    }
+                                });
+                            </script>
+                    </div>
+                    <div class="clothing-about">
+                        <h3>Dsquared2</h3>
+                        <p>рубашка в шотландскую клетку</p>
+                    </div>
+                </div>
             </section>
 
             <!---------- Parameters section ---------->
             <section class="parameters">
-                <form action="get-parameters" method='POST'>
+                <div class="input-zone parameter-grey">
+                    <span>Ввод мерок</span>
+                    <button onclick="hide()" id="hide" style="display: {{ hide_display }}">Скрыть</button>
+                    <button onclick="show()" id="show" style="display: {{ show_display }}">Редактировать</button>
+                </div>
+                <form action="/testing" method='GET' id="parameters-form" style="display: {{ parameters_display }}">
 
                     <div class="parameter" id="div-waist">
                         <div class="parameter-title">
                             <h3>Талия</h3>
-                            <button onclick="hide('waist')" type="button" id="hide-waist">Скрыть</button>
-                            <button onclick="show('waist')" type="button" id="show-waist" style="display: none">Показать</button>
                         </div>
                         <div class="parameter-img" id="img-waist">
                             <img src="{% static 'main/img/waist.png' %}" alt="Талия">
@@ -102,18 +161,16 @@
                         <div class="parameter-selector" id="parameter-waist">
                             <p>Следует наложить ленту горизонтально вокруг самого узкого места фигуры.</p>
                             <button onclick="changeSize('waist', '-')" type="button">—</button>
-                            <h4 id="waist-size">115</h4>
+                            <h4 id="waist-size">{{ waist }}</h4>
                             <button onclick="changeSize('waist', '+')" type="button">+</button>
                             <span>см</span>
-                            <label for="waist"></label><input type="range" name="waist" oninput="setSize('waist')" min="74" max="160" value="115" step="1" id="waist">
+                            <label for="waist"></label><input type="range" name="waist" oninput="setSize('waist')" min="74" max="160" value="{{ waist }}" step="1" id="waist">
                         </div>
                     </div>
 
                     <div class="parameter parameter-grey" id="div-hips">
                         <div class="parameter-title">
                             <h3>Бёдра</h3>
-                            <button onclick="hide('hips')" type="button" id="hide-hips">Скрыть</button>
-                            <button onclick="show('hips')" type="button" id="show-hips" style="display: none">Показать</button>
                         </div>
                         <div class="parameter-img" id="img-hips">
                             <img src="{% static 'main/img/hips.png' %}" alt="Бёдра">
@@ -121,18 +178,16 @@
                         <div class="parameter-selector" id="parameter-hips">
                             <p>Нужно измерить полный обхват бедер, с учетом выступа живота спереди и по самым выпуклым точкам ягодиц сзади.</p>
                             <button onclick="changeSize('hips', '-')" type="button">—</button>
-                            <h4 id="hips-size">125</h4>
+                            <h4 id="hips-size">{{ thighs }}</h4>
                             <button onclick="changeSize('hips', '+')" type="button">+</button>
                             <span>см</span>
-                            <label for="hips"></label><input type="range" name="hips" oninput="setSize('hips')" min="90" max="160" value="125" step="1" id="hips">
+                            <label for="hips"></label><input type="range" name="thighs" oninput="setSize('hips')" min="90" max="160" value="{{ thighs }}" step="1" id="hips">
                         </div>
                     </div>
 
                     <div class="parameter" id="div-hand">
                         <div class="parameter-title">
                             <h3>Рука</h3>
-                            <button onclick="hide('hand')" type="button" id="hide-hand">Скрыть</button>
-                            <button onclick="show('hand')" type="button" id="show-hand" style="display: none">Показать</button>
                         </div>
                         <div class="parameter-img" id="img-hand">
                             <img src="{% static 'main/img/hand.png' %}" alt="Рука">
@@ -140,18 +195,16 @@
                         <div class="parameter-selector" id="parameter-hand">
                             <p>Лента должна проходить горизонтально вокруг самой широкой части руки.</p>
                             <button onclick="changeSize('hand', '-')" type="button">—</button>
-                            <h4 id="hand-size">40</h4>
+                            <h4 id="hand-size">{{ biceps }}</h4>
                             <button onclick="changeSize('hand', '+')" type="button">+</button>
                             <span>см</span>
-                            <label for="hand"></label><input type="range" name="hand" oninput="setSize('hand')" min="20" max="60" value="40" step="1" id="hand">
+                            <label for="hand"></label><input type="range" name="biceps" oninput="setSize('hand')" min="20" max="60" value="{{ biceps }}" step="1" id="hand">
                         </div>
                     </div>
 
                     <div class="parameter parameter-grey" id="div-chest">
                         <div class="parameter-title">
                             <h3>Грудь</h3>
-                            <button onclick="hide('chest')" type="button" id="hide-chest">Скрыть</button>
-                            <button onclick="show('chest')" type="button" id="show-chest" style="display: none">Показать</button>
                         </div>
                         <div class="parameter-img" id="img-chest">
                             <img src="{% static 'main/img/chest.png' %}" alt="Грудь">
@@ -159,18 +212,16 @@
                         <div class="parameter-selector" id="parameter-chest">
                             <p>Лента должна проходить горизонтально вокруг туловища по наиболее выступающим точкам груди.</p>
                             <button onclick="changeSize('chest', '-')" type="button">—</button>
-                            <h4 id="chest-size">120</h4>
+                            <h4 id="chest-size">{{ chest }}</h4>
                             <button onclick="changeSize('chest', '+')" type="button">+</button>
                             <span>см</span>
-                            <label for="chest"></label><input type="range" name="chest" oninput="setSize('chest')" min="88" max="150" value="120" step="1" id="chest">
+                            <label for="chest"></label><input type="range" name="chest" oninput="setSize('chest')" min="88" max="150" value="{{ chest }}" step="1" id="chest">
                         </div>
                     </div>
 
                     <div class="parameter" id="div-height">
                         <div class="parameter-title">
                             <h3>Рост</h3>
-                            <button onclick="hide('height')" type="button" id="hide-height">Скрыть</button>
-                            <button onclick="show('height')" type="button" id="show-height" style="display: none">Показать</button>
                         </div>
                         <div class="parameter-img" id="img-height">
                             <img src="{% static 'main/img/height.png' %}" alt="Рост">
@@ -178,35 +229,16 @@
                         <div class="parameter-selector" id="parameter-height">
                             <p>Чтобы измерить рост, вам нужно опустить руки вдоль тела, расправить плечи, выпрямить спину. Ноги должны быть выпрямлены.</p>
                             <button onclick="changeSize('height', '-')" type="button">—</button>
-                            <h4 id="height-size">175</h4>
+                            <h4 id="height-size">{{ height }}</h4>
                             <button onclick="changeSize('height', '+')" type="button">+</button>
                             <span>см</span>
-                            <label for="height"></label><input type="range" name="height" oninput="setSize('height')" min="165" max="190" value="175" step="1" id="height">
+                            <label for="height"></label><input type="range" name="height" oninput="setSize('height')" min="165" max="190" value="{{ height }}" step="1" id="height">
                         </div>
                     </div>
 
                     {% csrf_token %}
-                    <input type="submit" value="Отправить данные" id="submit"/>
+                    <input type="submit" value="Отправить данные" id="submit" onclick="hide()"/>
                 </form>
-            </section>
-
-            <!---------- Clothing test section ---------->
-            <section class="clothing-test">
-                <a name="clothing-test"></a>
-                <h2>Начало использования</h2>
-                <p>Выберите нужный размер, чтобы оценить посадку данной рубашки именно на вас</p>
-                <div>
-                    <div class="clothing-selector">
-                        <img src="{% static 'main/img/selector.png' %}" alt="Выберите вещь">
-                    </div>
-                    <div class="clothing-view">
-                        <img src="{% static 'main/img/photo360.png' %}" alt="Просмотр">
-                    </div>
-                    <div class="clothing-about">
-                        <h3>Dsquared2</h3>
-                        <p>рубашка в шотландскую клетку</p>
-                    </div>
-                </div>
             </section>
 
             <!---------- Test section ---------->
