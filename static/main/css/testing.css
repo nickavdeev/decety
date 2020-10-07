@@ -1,7 +1,31 @@
-/* ---------- Parameters section ---------- */
 .parameters {
     text-align: center;
     padding-bottom: 5vw;
+}
+.parameters .input-zone {
+    text-align: left;
+    padding: 2vw 10vw;
+}
+.parameters .input-zone span {
+    font-size: 2.25vw;
+    font-weight: 600;
+    margin-right: 0.25vw;
+}
+.parameters .input-zone button {
+    border: none;
+    background-color: transparent;
+    font-size: 1.25vw;
+    outline: none;
+    color: #b4b4b4;
+    transition-duration: 0.2s;
+    transition-property: color;
+}
+.parameters .input-zone button:hover {
+    cursor: pointer;
+    color: #c2c2c2;
+}
+.parameters .input-zone #show {
+    display: none;
 }
 .parameters > form > input[type="submit"] {
     border: none;
@@ -13,6 +37,7 @@
     cursor: pointer;
     transition-property: background-color;
     transition-duration: 0.3s;
+    outline: none;
 }
 .parameters > form > input[type="submit"]:hover {
     background-color: #323232;
@@ -40,8 +65,10 @@
     background: none;
     border: none;
     cursor: pointer;
+    outline: none;
 }
 .parameter-img {
+    display: flex;
 }
 .parameter-img img {
     width: 15vw;
@@ -63,6 +90,7 @@
     cursor: pointer;
     border: none;
     background: none;
+    outline: none;
 }
 .parameter-selector > p {
     flex: 0 0 100%;
@@ -103,16 +131,7 @@ input[type='range']::-webkit-slider-thumb {
 
 /* ---------- Clothing test section ---------- */
 .clothing-test {
-    padding: calc(5px + 1.5vw) calc(5px + 11.5vw);
-}
-.clothing-test h2 {
-    font-style: italic;
-    font-weight: 600;
-    font-size: 2.25vw;
-    padding-bottom: calc(5px + 2vw);
-}
-.clothing-test p {
-    font-size: 1.25vw;
+    padding: 0 calc(5px + 11.5vw) calc(5px + 1.5vw) calc(5px + 11.5vw);
 }
 .clothing-test div {
     display: grid;
@@ -122,13 +141,10 @@ input[type='range']::-webkit-slider-thumb {
 .clothing-test div div {
     display: flex;
     justify-content: center;
-    padding: calc(5px + 3.5vw) calc(5px + 1vw);
+    padding: 0;
 }
 .clothing-test .clothing-selector img {
     width: 100%;
-}
-.clothing-test .clothing-view img {
-    width: 22vw;
 }
 .clothing-test .clothing-about {
     flex-direction: column;

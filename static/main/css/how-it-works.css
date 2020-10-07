@@ -1,6 +1,6 @@
 /* ---------- Service section ---------- */
 .service {
-    padding: calc(5px + 2.5vw) calc(10px + 8vw);
+    padding: calc(5px + 2.5vw) calc(10px + 8vw) calc(5px + 2vw) calc(10px + 8vw);
     text-align: center;
 }
 .service h1 {
