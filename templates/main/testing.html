@@ -66,11 +66,11 @@
             data.append("color",        "");
             data.append("size",         "M");
             data.append("description",  "Blue t-shirt");
-            data.append("d1",           {{ waist }});
-            data.append("d2",           {{ thighs }});
-            data.append("d3",           {{ biceps }});
-            data.append("d4",           {{ chest }});
-            data.append("d5",           {{ height }});
+            data.append("d1",           10 * {{ height }});
+            data.append("d2",           10 * {{ waist }});
+            data.append("d3",           10 * {{ thighs }});
+            data.append("d4",           10 * {{ chest }});
+            data.append("d5",           10 * {{ biceps }});
 
             $.ajax({
                 url: 'https://decety.com/api/get',
