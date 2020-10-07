@@ -313,6 +313,7 @@ footer div:nth-child(1) img {
     width: 15vw;
 }
 footer div:nth-child(2) img {
-    width: 3vw;
-    margin-right: 1.5vw;
+    width: 6vw;
+    margin: 0;
+    padding: 0;
 }
