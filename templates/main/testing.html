@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'main/css/contacts.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'main/css/how-it-works.css' %}">
     <link rel="stylesheet" type="text/css" href="../../static/main/css/testing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
  	<link rel="shortcut icon" href="{% static 'main/img/favicon.png' %}" type="#">
 
@@ -106,12 +107,16 @@
             });
         }
     </script>
+
+    <script>
+        let timer = setTimeout("document.getElementById('waiter').style.display = 'grid'", 5000);
+    </script>
 </head>
 <body>
         <header>
             <div>
                 <button><img src="{% static 'main/img/russian_flag.png'%}" alt="Сменить язык"></button>
-                <a href="http://127.0.0.1:8000"><img src="{% static 'main/img/decety_top_logo.png' %}" alt="Decety — сервис виртуальной примерки одежды"></a>
+                <a href="/"><img src="{% static 'main/img/decety_top_logo.png' %}" alt="Decety — сервис виртуальной примерки одежды"></a>
                 <a></a>
                 <!--  <button><img src="{% static 'main/img/profile.png' %}" alt="Профиль"></button>  -->
             </div>
@@ -134,19 +139,28 @@
             <!---------- Clothing test section ---------->
             <section class="clothing-test">
                 <a name="test"></a>
+                <div class="waiter animate__animated animate__fadeIn" id="waiter" style="display: none">
+                    <button onclick="document.getElementById('waiter').style.display = 'none';">
+                        <img src="{% static 'main/img/close-button.png' %}" alt="Закрыть">
+                    </button>
+                    <span>Введите свои мерки, чтобы оценить посадку данной рубашки на вас</span>
+                    <img class="animate__animated animate__slideInDown animate__infinite" src="{% static 'main/img/down-arrow.png' %}" alt="Вниз" style="animation-duration: 5s">
+                </div>
                 <div>
                     <div class="clothing-selector">
                         <img src="" alt="" id="photo-preview">
                         <script type="text/javascript">GetPhotos(1);</script>
                     </div>
                     <div id="360-view"
-                             class="cloudimage-360 clothing-view"
-                             data-bottom-circle
-                             data-bottom-circle-offset="5"
-                             data-keys
-                             data-box-shadow="none"
-                             data-responsive="scaleflex"
-                             data-spin-reverse>
+                         class="cloudimage-360"
+                         data-bottom-circle
+                         data-bottom-circle-offset="10"
+                         data-keys
+                         data-box-shadow="none"
+                         data-responsive="scaleflex"
+                         data-spin-reverse
+                         autoplay
+                         data-speed="150" onclick="clearTimeout(timer);">
                         <script type="text/javascript">GetPhotos(360)</script>
                     </div>
                     <div class="clothing-about">

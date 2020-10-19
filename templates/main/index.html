@@ -17,6 +17,58 @@
 	<meta property="og:type" content="article">
 	<meta property="og:image" content="#">
 	<meta property="og:site_name" content="">
+
+    <script src="https://cdn.scaleflex.it/plugins/js-cloudimage-360-view/2.5.0/js-cloudimage-360-view.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        function GetPhotos(request) {
+            let data = new FormData();
+            data.append("shop_id",      2487);
+            data.append("id",           "dw2bk3ea|Polo ");
+            data.append("color",        "");
+            data.append("size",         "M");
+            data.append("description",  "Printed shirt");
+            data.append("d1",           10 * {{ height }});
+            data.append("d2",           10 * {{ waist }});
+            data.append("d3",           10 * {{ thighs }});
+            data.append("d4",           10 * {{ chest }});
+            data.append("d5",           10 * {{ biceps }});
+
+            $.ajax({
+                url: 'https://decety.com/api/get',
+                data: data,
+                processData: false,
+                contentType: false,
+                type: 'POST',
+                success: function(data){
+                    data = JSON.parse(data);
+                    let image_list;
+                    if (data.error === '') {
+                        console.log(data.result);
+                        image_list = data.result.map(function (image_id) {
+                            // return 'https://decety.com/api/image-small/' + image_id;
+                            return 'https://decety.com/api/image/' + image_id;
+                        });
+
+                        $('#360-view').attr('data-image-list', JSON.stringify(image_list));
+
+                        if (request === 360) {
+                            return window.CI360.init();
+                        }
+                        else if (request === 1) {
+                            document.getElementById("photo-preview").src = image_list[1];
+                        }
+                    }
+                    else {
+                        if (request === 1){
+                            alert('Ошибка сервера. Пожалуйста, повторите позднее.')
+                        }
+                    }
+                }
+            });
+        }
+    </script>
 </head>
 <body>
         <header>
@@ -28,10 +80,10 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="http://127.0.0.1:8000/how-it-works">Как это работает</a></li>
-                    <li><a href="http://127.0.0.1:8000/testing">Протестировать</a></li>
+                    <li><a href="/how-it-works">Как это работает</a></li>
+                    <li><a href="/testing">Протестировать</a></li>
                     <!-- <li><a href="#">Сотрудничество</a></li> -->
-                    <li><a href="http://127.0.0.1:8000/contacts">Контакты</a></li>
+                    <li><a href="/contacts">Контакты</a></li>
                 </ul>
             </nav>
         </header>
@@ -43,8 +95,15 @@
                     <h1>Decety&nbsp;— сервис виртуальной примерки одежды</h1>
                     <p>Благодаря сервису вы&nbsp;сможете рассмотреть со&nbsp;всех сторон посадку выбранной вещи именно на&nbsp;вас до&nbsp;её&nbsp;заказа, в&nbsp;режиме онлайн.</p>
                 </div>
-                <div class="decety-test">
-                    <img src="{% static 'main/img/white-shirt.png' %}" alt="Пример использования сервиса">
+                <div id="360-view"
+                     class="cloudimage-360"
+                     data-bottom-circle
+                     data-bottom-circle-offset="5"
+                     data-keys
+                     data-box-shadow="none"
+                     data-responsive="scaleflex"
+                     data-spin-reverse>
+                    <script type="text/javascript">GetPhotos(360)</script>
                 </div>
             </section>
 

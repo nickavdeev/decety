@@ -4,7 +4,11 @@ from .forms import RequestForm
 
 
 def index(request):
-    return render(request, 'main/index.html')
+    default_parameters = {'waist': '115', 'thighs': '125',
+                          'biceps': '40', 'chest': '120',
+                          'height': '175', 'parameters_display': 'block',
+                          'hide_display': 'inline', 'show_display': 'none'}
+    return render(request, 'main/index.html', default_parameters)
 
 
 def contacts(request):
