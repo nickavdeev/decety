@@ -131,6 +131,7 @@ input[type='range']::-webkit-slider-thumb {
 
 /* ---------- Clothing test section ---------- */
 .clothing-test {
+    min-height: 35vw;
     padding: 0 calc(5px + 11.5vw) calc(5px + 1.5vw) calc(5px + 11.5vw);
 }
 .clothing-test div {
@@ -158,6 +159,46 @@ input[type='range']::-webkit-slider-thumb {
     font-weight: 400;
     font-size: 1.5vw;
 }
+.cloudimage-360 {max-width: 100%;}
+
+.waiter {
+    position: absolute;
+    left: 36.5vw;
+    width: 24vw;
+    max-width: 28vw;
+    height: 34vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    grid-template-rows: 2.5fr 2.5fr 2fr;
+    padding: 0 2vw;
+}
+.waiter span {
+    color: white;
+    text-align: center;
+    font-size: 1.4vw;
+    grid-column: 1 / 4;
+}
+.waiter button {
+    background: none;
+    border: 0;
+    outline: none;
+    grid-column: 3 / 4;
+}
+.waiter img[alt="Закрыть"]{
+    width: 2.5vw;
+    height: 2.5vw;
+}
+.waiter img[alt="Закрыть"]:hover {
+    cursor: pointer;
+}
+.waiter img[alt="Вниз"] {
+    width: 5vw;
+    height: 5vw;
+    grid-column: 2 / 3;
+    text-align: center;
+    margin-left: 15%;
+}
+
 
 /* ---------- Test section ---------- */
 .test {

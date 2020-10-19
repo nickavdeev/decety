@@ -106,8 +106,8 @@ main {
 /* ---------- About section ---------- */
 .about{
     display: grid;
-    grid-template-columns: 8fr 7fr;
-    padding: calc(5px + 3.5vw) calc(5px + 10vw);
+    grid-template-columns: 7fr 6fr;
+    padding: 2vw calc(5px + 10.5vw);
 }
 .about-header {
     display: flex;
@@ -126,12 +126,7 @@ main {
     font-size: 1.25vw;
     padding-right: calc(5px + 6vw);
 }
-.decety-test {
-    text-align: center;
-}
-.decety-test img {
-    width: 25vw;
-}
+.cloudimage-360 {max-width: 70%;}
 
 /* ---------- Measurements section ---------- */
 .measurements {
