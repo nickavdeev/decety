@@ -71,7 +71,8 @@
     display: flex;
 }
 .parameter-img img {
-    width: 15vw;
+    width: 18vw;
+    max-height: 32vw;
 }
 .parameter-selector {
     display: flex;
@@ -132,8 +133,10 @@ input[type='range']::-webkit-slider-thumb {
 /* ---------- Clothing test section ---------- */
 .clothing-test {
     min-height: 35vw;
+    max-height: 40vw;
     padding: 0 calc(5px + 11.5vw) calc(5px + 1.5vw) calc(5px + 11.5vw);
 }
+.clothing-selector img {max-height: 35vw}
 .clothing-test div {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
