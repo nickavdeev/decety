@@ -41,6 +41,7 @@
     font-weight: 100;
     font-size: 1.25vw;
 }
+#service-item-img-1 {width: 3vw; padding-top: calc(5px + 2vw);}
 
 /* ---------- About block section ---------- */
 .about-block {
@@ -90,18 +91,25 @@
 
 @media (max-width: 480px) {
     /* ---------- Service section ---------- */
-    .service {
-        padding: calc(5px + 2.5vw) calc(10px + 8vw) calc(5px + 2vw) calc(10px + 8vw);
-        text-align: center;
+    .service {padding: 8vw;}
+    .service h1 {font-size: 6vw;padding-bottom: 0;}
+    .service p {font-size: 4vw;}
+
+    /* ---------- Service items section ---------- */
+    .service-items {grid-template-columns: 1fr;padding: 8vw;}
+    .service-items h2 {font-size: 5vw;grid-column: 1/1;}
+    .service-item {padding: 5vw;}
+    .service-item img {
+        width: 22vw;
+        padding-top: calc(5px + 4vw);
     }
-    .service h1 {
-        text-align: center;
-        font-style: italic;
-        font-weight: 600;
-        font-size: 2.25vw;
-        padding-bottom: 2vw;
-    }
-    .service p {
-        font-size: 1.25vw;
-    }
+    #service-item-img-1 {width: 10vw; padding-top: calc(5px + 4vw);}
+    .service-item p {font-size: 5vw;}
+    #service-item-1 {width: 25vw;}
+
+    /* ---------- About block section ---------- */
+    .about-block {grid-template-columns: 1fr;padding: 5vw 10vw;}
+    .about-text h2 {font-size: 7vw;}
+    .about-text p {font-size: 4.5vw;}
+    .about-images {font-size: 6vw;padding: 8vw 4vw;}
 }
