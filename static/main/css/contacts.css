@@ -112,3 +112,31 @@
 .feedback input::placeholder, .feedback textarea::placeholder {
     color: #b4b4b4;
 }
+
+@media (max-width: 480px) {
+    /* ---------- Personalities section ---------- */
+    .personalities {padding: 5vw;}
+    .personalities h1 {font-size: 8vw;padding-bottom: 4vw;}
+    .personalities div {align-items: center;flex-direction: column;}
+    .personalities .person {width: 80vw;padding: 5vw;}
+    .personalities .person img {width: 35vw;height: 35vw;}
+    .personalities .person h2 {font-size: 7vw;margin-bottom: 2vw;margin-top: 2vw;}
+
+    /* ---------- Contacts section ---------- */
+    .contacts {padding: 5vw;}
+    .contacts h2 {padding-left: 5vw;padding-bottom: 2vw;}
+    .contacts p {padding-left: 5vw;padding-bottom: 7vw;}
+
+    /* ---------- Feedback section ---------- */
+    .feedback {padding: 5vw 10vw;}
+    .feedback h1 {font-size: 6.5vw;}
+    .feedback form {padding: 5vw 0;}
+    .feedback input, .feedback textarea {
+        width: 70vw;
+        padding: 4vw 4vw;
+        margin-bottom: 5vw;
+        font-size: 5vw;
+        border-radius: 5px;
+    }
+    .feedback input[type="submit"] {border-radius: 5px;width: 80vw;}
+}
