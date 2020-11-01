@@ -68,21 +68,12 @@
 
                 <h2>Адрес</h2>
                 <p>г. Екатеринбург, Россия</p>
+                <a id="feedback-form"></a>
             </section>
 
             <!---------- Feedback section ---------->
             <section class="feedback">
-                <h1>Форма обратной связи</h1>
-                <p>Задавайте вопросы, пишите предложения по сотрудничеству или по улучшению сервиса</p>
-
-                <form action="/done#feedback-form" method="POST" id="feedback-form">
-                    {% csrf_token %}
-                    <label><input type="text" placeholder="Имя" name="name"></label>
-                    <label><input type="tel" placeholder="Телефон" name="phone"></label>
-                    <label><input type="email" placeholder="Email" name="email"></label>
-                    <label><textarea placeholder="Сообщение" rows="4" name="message"></textarea></label>
-                    <input type="submit" value="Отправить">
-                </form>
+                <h1>Спасибо!</h1>
             </section>
         </main>
 
