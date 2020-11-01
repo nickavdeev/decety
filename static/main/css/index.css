@@ -312,3 +312,77 @@ footer div:nth-child(2) img {
     margin: 0;
     padding: 0;
 }
+
+
+@media (max-width: 480px) {
+    /* ---------- Header ---------- */
+    header div {padding: 5vw 8vw 3vw 5vw;}
+    header div button img {width: 22px;}
+    nav ul {flex-direction: column;}
+    nav ul li a {padding: calc(5px + 2vw);}
+
+    /* ---------- About section ---------- */
+    .about{
+        grid-template-columns: 1fr;
+        padding: 5vw calc(5px + 10vw);
+    }
+    .about-header h1 {
+        font-size: 6.5vw;
+        padding-bottom: calc(5px + 2vw);
+    }
+    .about-header p {
+        font-weight: 400;
+        font-size: 4vw;
+        padding-right: 0;
+    }
+    .cloudimage-360 {max-width: 100%;text-align: center;padding-top: 5vw}
+
+    /* ---------- Measurements section ---------- */
+    .measurements {padding: 5vw;}
+    .measurements h2 {padding-left: 5vw;font-size: 6vw;}
+    .measurements a {width: 20px;left: 35vw;top: 178vw;}
+    .measurements a img {width: 20px;}
+    .measurements p {padding-left: 5vw;padding-bottom: 5vw;}
+    .measurements img {width: 80vw;padding-left: 5vw;}
+
+    /* ---------- Visualization section ---------- */
+    .visualization{grid-template-columns: 1fr;padding: 5vw;}
+    .visualization-header {padding: 5vw;}
+    .visualization-header h2 {font-size: 6vw;}
+    .visualization-header p {font-size: 4vw;padding-right: 0;}
+    .visualization-decety-test {padding: 3vw 0;text-align: center;}
+    .visualization-decety-test img {width: 60vw;}
+
+    /* ---------- Advantages section ---------- */
+    .advantages {grid-template-columns: 1fr;padding: 5vw;}
+    .advantage-item img {width: 15vw;padding-bottom: 3vw;}
+    .advantage-item p {font-size: 4vw;margin-bottom: 6vw;}
+
+    /* ---------- Test section ---------- */
+    .test {grid-template-columns: 1fr;grid-gap: calc(5px + 5vw);}
+    .test h2 {
+        grid-column: 1 / 1;
+        text-align: center;
+        font-size: 8vw;
+        padding: 0;
+        margin-bottom: 3vw;
+    }
+    .test-item {text-align: center;padding: 0 calc(5px + 2vw);}
+    .test-item h3 {padding-bottom: 0;font-size: 6vw;}
+    .test-item p {font-size: 4vw;margin-bottom: 3vw}
+    .decety-test-container {height: 60vw;}
+
+    /* ---------- History section ---------- */
+    .history {grid-template-columns: 1fr;padding: 5vw 10vw;}
+    .history-header {padding: 0;}
+    .history-header h2 {font-size: 7vw;}
+    .history-header img {right: 16vw;margin-bottom: -20vw;width: 8vw;}
+    .history-header p {font-size: 4vw;padding-right: 0;padding-bottom: 3vw;}
+    .video-container iframe {width: 80vw;height: 50vw;}
+
+    /* ---------- Footer ---------- */
+    footer {grid-template-columns: 1fr;padding: 10vw;}
+    footer div p {margin-bottom: calc(5px + 0.5vw);font-size: 4.5vw;}
+    footer div:nth-child(1) img {width: 40vw;}
+    footer div:nth-child(2) img {width: 15vw;margin-left: -2vw;}
+}
