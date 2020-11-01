@@ -131,12 +131,6 @@
     .feedback {padding: 5vw 10vw;}
     .feedback h1 {font-size: 6.5vw;}
     .feedback form {padding: 5vw 0;}
-    .feedback input, .feedback textarea {
-        width: 70vw;
-        padding: 4vw 4vw;
-        margin-bottom: 5vw;
-        font-size: 5vw;
-        border-radius: 5px;
-    }
+    .feedback input, .feedback textarea {width: 70vw;padding: 4vw 4vw;margin-bottom: 5vw;font-size: 5vw;border-radius: 5px;}
     .feedback input[type="submit"] {border-radius: 5px;width: 80vw;}
 }
