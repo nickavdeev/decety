@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render
-from .forms import FeedbackForm
+from .forms import FeedbackForm, RequestForm
 from .models import Feedback
 import telebot
 
@@ -45,7 +45,8 @@ def contacts(request):
 
 
 def how_it_works(request):
-    return render(request, 'main/how-it-works.html')
+    return render(request, 'main/how-it-works-dev.html')
+    # return render(request, 'main/how-it-works.html')
 
 
 def testing(request):
@@ -73,3 +74,57 @@ def testing(request):
         form = RequestForm()
 
     return render(request, '../templates/main/testing.html', {'form': form})
+
+
+def testing_gucci(request):
+    default_parameters = {'waist': '115', 'thighs': '125',
+                          'biceps': '40', 'chest': '120',
+                          'height': '175', 'parameters_display': 'block',
+                          'hide_display': 'inline', 'show_display': 'none'}
+    if request.method == 'POST':
+        return render(request, 'main/testing-gucci.html', default_parameters)
+
+    elif request.method == 'GET':
+        data = request.GET
+        if len(data) == 0:
+            return render(request, 'main/testing-gucci.html', default_parameters)
+        else:
+            return render(request, 'main/testing-gucci.html',
+                          {'waist':     data['waist'],
+                           'thighs':    data['thighs'],
+                           'biceps':    data['biceps'],
+                           'chest':     data['chest'],
+                           'height':    data['height'],
+                           'parameters_display':   'none',
+                           'hide_display': 'none', 'show_display': 'inline'})
+    else:
+        form = RequestForm()
+
+    return render(request, '../templates/main/testing-gucci.html', {'form': form})
+
+
+def testing_new_balance(request):
+    default_parameters = {'waist': '115', 'thighs': '125',
+                          'biceps': '40', 'chest': '120',
+                          'height': '175', 'parameters_display': 'block',
+                          'hide_display': 'inline', 'show_display': 'none'}
+    if request.method == 'POST':
+        return render(request, 'main/testing-new-balance.html', default_parameters)
+
+    elif request.method == 'GET':
+        data = request.GET
+        if len(data) == 0:
+            return render(request, 'main/testing-new-balance.html', default_parameters)
+        else:
+            return render(request, 'main/testing-new-balance.html',
+                          {'waist':     data['waist'],
+                           'thighs':    data['thighs'],
+                           'biceps':    data['biceps'],
+                           'chest':     data['chest'],
+                           'height':    data['height'],
+                           'parameters_display':   'none',
+                           'hide_display': 'none', 'show_display': 'inline'})
+    else:
+        form = RequestForm()
+
+    return render(request, '../templates/main/testing-new-balance.html', {'form': form})

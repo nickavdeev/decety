@@ -21,54 +21,7 @@
     <script src="https://cdn.scaleflex.it/plugins/js-cloudimage-360-view/2.5.0/js-cloudimage-360-view.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script type="text/javascript">
-        function GetPhotos(request) {
-            let data = new FormData();
-            data.append("shop_id",      2487);
-            data.append("id",           "dw2bk3ea|Polo ");
-            data.append("color",        "");
-            data.append("size",         "M");
-            data.append("description",  "Printed shirt");
-            data.append("d1",           10 * {{ height }});
-            data.append("d2",           10 * {{ waist }});
-            data.append("d3",           10 * {{ thighs }});
-            data.append("d4",           10 * {{ chest }});
-            data.append("d5",           10 * {{ biceps }});
-
-            $.ajax({
-                url: 'https://decety.com/api/get',
-                data: data,
-                processData: false,
-                contentType: false,
-                type: 'POST',
-                success: function(data){
-                    data = JSON.parse(data);
-                    let image_list;
-                    if (data.error === '') {
-                        console.log(data.result);
-                        image_list = data.result.map(function (image_id) {
-                            // return 'https://decety.com/api/image-small/' + image_id;
-                            return 'https://decety.com/api/image/' + image_id;
-                        });
-
-                        $('#360-view').attr('data-image-list', JSON.stringify(image_list));
-
-                        if (request === 360) {
-                            return window.CI360.init();
-                        }
-                        else if (request === 1) {
-                            document.getElementById("photo-preview").src = image_list[1];
-                        }
-                    }
-                    else {
-                        if (request === 1){
-                            alert('Ошибка сервера. Пожалуйста, повторите позднее.')
-                        }
-                    }
-                }
-            });
-        }
-    </script>
+    <script type="text/javascript" src="{% static 'main/js/360-script.js' %}"></script>
 </head>
 <body>
         <header>
@@ -103,14 +56,15 @@
                      data-box-shadow="none"
                      data-responsive="scaleflex"
                      data-spin-reverse>
-                    <script type="text/javascript">GetPhotos(360)</script>
+                    <script type="text/javascript">
+                        GetPhotos(360, 2487, "dw2bk3ea|Polo ", "", "M", "Printed shirt", 175, 115, 125, 120, 40)
+                    </script>
                 </div>
             </section>
 
             <!---------- Measurements section ---------->
             <section class="measurements">
-                <h2>5 мерок</h2>
-                <a href="/testing"><img src="{% static 'main/img/info.png' %}" alt="Протестировать сервис"></a>
+                <h2>5 мерок <a href="/testing"><img src="{% static 'main/img/info.png' %}" alt="Протестировать сервис"></a></h2>
                 <p>Всё, что необходимо для получения посадки одежды именно на вас</p>
                 <img src="{% static 'main/img/measurements.png' %}" alt="5 мерок">
             </section>
@@ -142,29 +96,44 @@
                 </div>
             </section>
 
+            <!---------- About section 2 ---------->
+            <section class="other-clothes">
+                <div>
+                    <h1>Аксессуары и обувь в 360°</h1>
+                    <p>Помимо примерки мы также занимаемся созданием объемных изображений аксессуаров и обуви.</p>
+                </div>
+                <a href="/testing/new-balance">
+                   <img src="{% static 'main/img/sneaker.jpg' %}" alt="Кроссовок New Balance">
+                </a>
+            </section>
+
             <!---------- Test section ---------->
             <section class="test">
                 <h2>Протестируйте сервис</h2>
-                <div class="test-item">
-                    <div class="decety-test-container">
-                        <img src="{% static 'main/img/shirt-calvin-klein.png' %}" alt="Рубашка с принтом Calvin Klein Jeans">
+                <a href="/testing">
+                    <div class="test-item">
+                        <div class="decety-test-container">
+                            <img src="{% static 'main/img/Polo-Ralph-Lauren.png' %}" alt="Свитшот с принтом Polo Ralph Lauren">
+                        </div>
+                        <h3>Polo Ralph Lauren</h3>
+                        <p>свитшот с принтом</p>
                     </div>
-                    <h3>Calvin Klein Jeans</h3>
-                    <p>рубашка с принтом</p>
-                </div>
-                <div class="test-item">
-                    <div class="decety-test-container">
-                        <img src="{% static 'main/img/t-shirt-alg.png' %}" alt="Футболка с контрастным логотипом ÀLG">
+                </a>
+                <a href="/testing/gucci">
+                    <div class="test-item">
+                        <div class="decety-test-container">
+                            <img src="{% static 'main/img/gucci.png' %}" alt="Сумка через плечо Gucci">
+                        </div>
+                        <h3>Gucci</h3>
+                        <p>сумка через плечо</p>
                     </div>
-                    <h3>ÀLG</h3>
-                    <p>футболка с контрастным логотипом</p>
-                </div>
-                <div class="test-item">
+                </a>
+                <div class="test-item" hidden>
                     <div class="decety-test-container">
-                        <img src="{% static 'main/img/polo.png' %}" alt="Рубашка поло с вышитым логотипом Polo Ralph Lauren">
+                        <img src="" alt="">
                     </div>
-                    <h3>Polo Ralph Lauren</h3>
-                    <p>рубашка поло с вышитым логотипом</p>
+                    <h3></h3>
+                    <p></p>
                 </div>
             </section>
 

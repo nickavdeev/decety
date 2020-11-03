@@ -122,7 +122,7 @@ main {
     padding-bottom: calc(5px + 1vw);
 }
 .about-header p {
-    font-weight: 600;
+    font-weight: 200;
     font-size: 1.25vw;
     padding-right: calc(5px + 6vw);
 }
@@ -131,27 +131,28 @@ main {
 /* ---------- Measurements section ---------- */
 .measurements {
     background-color: #FAFAFA;
-    padding: calc(5px + 1.5vw) calc(5px + 10vw);
+    padding: 1.5vw 10vw;
+    position: relative;
 }
 .measurements h2 {
     font-weight: 600;
     font-style: italic;
-    padding-left: calc(20px + 5vw);
-    padding-bottom: calc(5px + 0.5vw);
+    font-size: 1.75vw;
+    padding-left: 5vw;
+    padding-bottom: 0.5vw;
 }
 .measurements a {
-    width: 20px;
-    position: absolute;
-    left: 23.5vw;
-    top: 40.5vw;
+    width: 1.4vw;
+    left: 22.5vw;
 }
 .measurements a img {
-    width: 20px;
+    width: 1.4vw;
 }
 .measurements p {
-    padding-left: calc(20px + 5vw);
-    padding-bottom: calc(5px + 1.5vw);
+    padding-left: 5vw;
+    padding-bottom: 1.5vw;
     font-weight: 100;
+    font-size: 1.25vw;
 }
 .measurements img {
     width: calc(75vw);
@@ -177,7 +178,7 @@ main {
     padding-bottom: calc(5px + 1vw);
 }
 .visualization-header p {
-    font-weight: 100;
+    font-weight: 200;
     font-size: 1.25vw;
     padding-right: calc(5px + 6vw);
 }
@@ -209,6 +210,20 @@ main {
     font-size: 1.25vw;
 }
 
+/*---------- About section 2 ---------- */
+.other-clothes {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    grid-column-gap: 4vw;
+    padding: 8vw 12vw;
+}
+.other-clothes div:first-child, .other-clothes a {display: flex; justify-content: center; flex-direction: column}
+.other-clothes div:first-child h1 {font-style: italic; font-weight: 600; font-size: 2.5vw}
+.other-clothes div:first-child p {font-weight: 200; font-size: 1.25vw; margin-top: 1.5vw}
+.other-clothes img {width: 90%; position: absolute;left: 2.5%; transition-duration: 0.25s; transition-property: width, left}
+.other-clothes a {position: relative}
+.other-clothes a:hover img {width: 95%; left: 0}
+
 /* ---------- Test section ---------- */
 .test {
     display: grid;
@@ -216,6 +231,7 @@ main {
     padding: calc(5px + 5vw) calc(5px + 8vw);
     grid-gap: calc(5px + 1.5vw);
 }
+.test a {text-decoration: none; color: #1C1C1C}
 .test h2 {
     grid-column: 1 / 4;
     font-size: 2.5vw;
@@ -249,6 +265,7 @@ main {
     height: 100%;
     cursor: pointer;
 }
+
 
 /* ---------- History section ---------- */
 .history {
@@ -342,7 +359,7 @@ footer div:nth-child(2) img {
     .measurements h2 {padding-left: 5vw;font-size: 6vw;}
     .measurements a {width: 20px;left: 35vw;top: 178vw;}
     .measurements a img {width: 20px;}
-    .measurements p {padding-left: 5vw;padding-bottom: 5vw;}
+    .measurements p {padding-left: 5vw;padding-bottom: 5vw;font-size: 4vw}
     .measurements img {width: 80vw;padding-left: 5vw;}
 
     /* ---------- Visualization section ---------- */
@@ -357,6 +374,17 @@ footer div:nth-child(2) img {
     .advantages {grid-template-columns: 1fr;padding: 5vw;}
     .advantage-item img {width: 15vw;padding-bottom: 3vw;}
     .advantage-item p {font-size: 4vw;margin-bottom: 6vw;}
+
+    /*---------- About section 2 ---------- */
+    .other-clothes {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 4vw;
+        padding: 8vw 10vw 0;
+    }
+    .other-clothes div:first-child h1 {font-size: 6vw}
+    .other-clothes div:first-child p {font-size: 4vw; margin-top: 2vw}
+    .other-clothes img {position: relative;}
 
     /* ---------- Test section ---------- */
     .test {grid-template-columns: 1fr;grid-gap: calc(5px + 5vw);}

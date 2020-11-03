@@ -132,23 +132,31 @@ input[type='range']::-webkit-slider-thumb {
 
 /* ---------- Clothing test section ---------- */
 .clothing-test {
-    min-height: 35vw;
+    min-height: 30vw;
     max-height: 40vw;
     padding: 0 calc(5px + 11.5vw) calc(5px + 1.5vw) calc(5px + 11.5vw);
 }
-.clothing-selector img {max-height: 35vw}
+.clothing-selector {display: flex; align-items: center; justify-content: center}
+
+.clothing-selector img {max-height: 35vw;}
 .clothing-test div {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 2vw;
+    grid-template-columns: 1.1fr 1fr 1.1fr;
+    grid-column-gap: 4vw;
 }
 .clothing-test div div {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 0;
+    min-height: 30vw;
 }
+.cloudimage-360 {padding-left: 3vw}
 .clothing-test .clothing-selector img {
     width: 100%;
+    vertical-align: center;
+    align-self: center;
+    justify-self: center;
 }
 .clothing-test .clothing-about {
     flex-direction: column;
@@ -169,7 +177,7 @@ input[type='range']::-webkit-slider-thumb {
     left: 36.5vw;
     width: 24vw;
     max-width: 28vw;
-    height: 34vw;
+    height: 32vw;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 2;
     grid-template-rows: 2.5fr 2.5fr 2fr;
@@ -249,19 +257,20 @@ input[type='range']::-webkit-slider-thumb {
     .clothing-test {min-height: 130vw;max-height: 300vw;padding: 5vw 10vw;}
     .clothing-selector img {max-height: 100vw}
     .clothing-test div {grid-template-columns: 1fr;grid-column-gap: 5vw;}
+    .clothing-test .clothing-selector {height: 90vw}
     .clothing-test .clothing-selector img {width: 60vw;}
     .clothing-test .clothing-about {padding: 5vw}
     .clothing-test .clothing-about h3 {font-size: 8vw;}
     .clothing-test .clothing-about p {font-size: 5vw;}
-    .cloudimage-360 {max-width: 100%;}
+    .cloudimage-360 {max-width: 100%;height: 90vw}
 
     .waiter {
         position: absolute;
         left: 10vw;
-        top: 115vw;
+        top: 105vw;
         width: 60vw;
         max-width: 60vw;
-        height: 120vw;
+        height: 110vw;
         grid-template-rows: 2.5fr 2.5fr 2fr;
         grid-row-gap: 5vw;
         padding: 0 10vw;
@@ -274,6 +283,8 @@ input[type='range']::-webkit-slider-thumb {
         grid-column: 2 / 3;
         text-align: center;
         margin-left: -15%;
+        animation: none;
+        margin-top: -5vw;
     }
 
     /* ПАРАМЕТРЫ */
