@@ -61,9 +61,9 @@
 
     <script type="text/javascript" src="{% static 'main/js/360-script.js' %}"></script>
 
-    <script>
+    <!--<script>
         let timer = setTimeout("document.getElementById('waiter').style.display = 'grid'", 5000);
-    </script>
+    </script>-->
 </head>
 <body>
         <header>
@@ -99,12 +99,12 @@
                     <span>Введите свои мерки, чтобы оценить посадку данной рубашки на вас</span>
                     <img class="animate__animated animate__slideInDown animate__infinite" src="{% static 'main/img/down-arrow.png' %}" alt="Вниз" style="animation-duration: 5s">
                 </div>
-                <div>
+                <div class="clothes-views">
                     <div class="clothing-selector">
-                        <img src="{% static 'main/img/Polo-Ralph-Lauren.png' %}" alt="" id="photo-preview" style="margin-top: -5vw">
-                        <!--<script type="text/javascript">
-                            GetPhotos(1, 2487, "d0eh23eda|Polo", "", "L", "Sweater", {{ height }}, {{ waist }}, {{ thighs }}, {{ chest }}, {{ biceps }})
-                        </script>-->
+                        <img src="" alt="" id="photo-preview">
+                        <script type="text/javascript">
+                            GetPhotos(1, 2487, "d99fwe123|Gucci", "", "M", "Bag", 180.04, 106.05, 100.31, 110.07, 35.21)
+                        </script>
                     </div>
                     <div id="360-view"
                          class="cloudimage-360"
@@ -117,125 +117,26 @@
                          autoplay
                          data-speed="150" onclick="clearTimeout(timer);">
                         <script type="text/javascript">
-                            GetPhotos(360, 2487, "d0eh23eda|Polo", "", "L", "Sweater", {{ height }}, {{ waist }}, {{ thighs }}, {{ chest }}, {{ biceps }})
+                            GetPhotos(360, 2487, "d99fwe123|Gucci", "", "M", "Bag", 180.04, 106.05, 100.31, 110.07, 35.21)
                         </script>
                     </div>
                     <div class="clothing-about">
-                        <h3>Polo Ralph Lauren</h3>
-                        <p>Свитшот с принтом</p>
+                        <h3>Gucci</h3>
+                        <p>Сумка через плечо</p>
                     </div>
                 </div>
-            </section>
-
-            <!---------- Parameters section ---------->
-            <section class="parameters">
-                <div class="input-zone parameter-grey">
-                    <span>Ввод мерок</span>
-                    <button onclick="hide()" id="hide" style="display: {{ hide_display }}">Скрыть</button>
-                    <button onclick="show()" id="show" style="display: {{ show_display }}">Редактировать</button>
-                </div>
-                <form action="/testing" method='GET' id="parameters-form" style="display: {{ parameters_display }}">
-
-                    <div class="parameter" id="div-waist">
-                        <div class="parameter-title">
-                            <h3>Талия</h3>
-                        </div>
-                        <div class="parameter-img" id="img-waist">
-                            <img src="{% static 'main/img/waist.png' %}" alt="Талия">
-                        </div>
-                        <div class="parameter-selector" id="parameter-waist">
-                            <p>Следует наложить ленту горизонтально вокруг самого узкого места фигуры.</p>
-                            <button onclick="changeSize('waist', '-')" type="button">—</button>
-                            <h4 id="waist-size">{{ waist }}</h4>
-                            <button onclick="changeSize('waist', '+')" type="button">+</button>
-                            <span>см</span>
-                            <label for="waist"></label><input type="range" name="waist" oninput="setSize('waist')" min="74" max="160" value="{{ waist }}" step="1" id="waist">
-                        </div>
-                    </div>
-
-                    <div class="parameter parameter-grey" id="div-hips">
-                        <div class="parameter-title">
-                            <h3>Бёдра</h3>
-                        </div>
-                        <div class="parameter-img" id="img-hips">
-                            <img src="{% static 'main/img/hips.png' %}" alt="Бёдра">
-                        </div>
-                        <div class="parameter-selector" id="parameter-hips">
-                            <p>Нужно измерить полный обхват бедер, с учетом выступа живота спереди и по самым выпуклым точкам ягодиц сзади.</p>
-                            <button onclick="changeSize('hips', '-')" type="button">—</button>
-                            <h4 id="hips-size">{{ thighs }}</h4>
-                            <button onclick="changeSize('hips', '+')" type="button">+</button>
-                            <span>см</span>
-                            <label for="hips"></label><input type="range" name="thighs" oninput="setSize('hips')" min="90" max="160" value="{{ thighs }}" step="1" id="hips">
-                        </div>
-                    </div>
-
-                    <div class="parameter" id="div-hand">
-                        <div class="parameter-title">
-                            <h3>Рука</h3>
-                        </div>
-                        <div class="parameter-img" id="img-hand">
-                            <img src="{% static 'main/img/hand.png' %}" alt="Рука">
-                        </div>
-                        <div class="parameter-selector" id="parameter-hand">
-                            <p>Лента должна проходить горизонтально вокруг самой широкой части руки.</p>
-                            <button onclick="changeSize('hand', '-')" type="button">—</button>
-                            <h4 id="hand-size">{{ biceps }}</h4>
-                            <button onclick="changeSize('hand', '+')" type="button">+</button>
-                            <span>см</span>
-                            <label for="hand"></label><input type="range" name="biceps" oninput="setSize('hand')" min="20" max="60" value="{{ biceps }}" step="1" id="hand">
-                        </div>
-                    </div>
-
-                    <div class="parameter parameter-grey" id="div-chest">
-                        <div class="parameter-title">
-                            <h3>Грудь</h3>
-                        </div>
-                        <div class="parameter-img" id="img-chest">
-                            <img src="{% static 'main/img/chest.png' %}" alt="Грудь">
-                        </div>
-                        <div class="parameter-selector" id="parameter-chest">
-                            <p>Лента должна проходить горизонтально вокруг туловища по наиболее выступающим точкам груди.</p>
-                            <button onclick="changeSize('chest', '-')" type="button">—</button>
-                            <h4 id="chest-size">{{ chest }}</h4>
-                            <button onclick="changeSize('chest', '+')" type="button">+</button>
-                            <span>см</span>
-                            <label for="chest"></label><input type="range" name="chest" oninput="setSize('chest')" min="88" max="150" value="{{ chest }}" step="1" id="chest">
-                        </div>
-                    </div>
-
-                    <div class="parameter" id="div-height">
-                        <div class="parameter-title">
-                            <h3>Рост</h3>
-                        </div>
-                        <div class="parameter-img" id="img-height">
-                            <img src="{% static 'main/img/height.png' %}" alt="Рост">
-                        </div>
-                        <div class="parameter-selector" id="parameter-height">
-                            <p>Чтобы измерить рост, вам нужно опустить руки вдоль тела, расправить плечи, выпрямить спину. Ноги должны быть выпрямлены.</p>
-                            <button onclick="changeSize('height', '-')" type="button">—</button>
-                            <h4 id="height-size">{{ height }}</h4>
-                            <button onclick="changeSize('height', '+')" type="button">+</button>
-                            <span>см</span>
-                            <label for="height"></label><input type="range" name="height" oninput="setSize('height')" min="165" max="190" value="{{ height }}" step="1" id="height">
-                        </div>
-                    </div>
-
-                    {% csrf_token %}
-                    <input type="submit" value="Отправить данные" id="submit" onclick="hide()"/>
-                </form>
             </section>
 
             <!---------- Test section ---------->
             <section class="test">
                 <h2>Оцените другие вещи</h2>
-                <a href="/testing/gucci">
+                <a href="/testing">
                     <div class="test-item">
                         <div class="decety-test-container">
-                            <img src="{% static 'main/img/gucci.png' %}" alt="Сумка через плечо Gucci">
+                            <img src="{% static 'main/img/Polo-Ralph-Lauren.png' %}" alt="Свитшот с принтом Polo Ralph Lauren">
                         </div>
-                        <h3>Gucci</h3>
-                        <p>сумка через плечо</p>
+                        <h3>Polo Ralph Lauren</h3>
+                        <p>свитшот с принтом</p>
                     </div>
                 </a>
                 <a href="/testing/new-balance">
@@ -249,7 +150,7 @@
                 </a>
                 <div class="test-item" hidden>
                     <div class="decety-test-container">
-                        <img src="" alt="">
+                        <img src="{% static 'main/img/sneaker.jpg' %}" alt="Сумка через плечо Gucci">
                     </div>
                     <h3></h3>
                     <p></p>

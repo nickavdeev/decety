@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Decety — контакты</title>
+    <title>Decety — как это работает</title>
     {% load static %}
     <meta name="description" content="Описание страницы">
 	<meta name="keywords" content="Ключевые, слова, на, странице">
@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'main/css/index.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'main/css/contacts.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/how-it-works.css' %}">
 
  	<link rel="shortcut icon" href="{% static 'main/img/favicon.png' %}" type="#">
 
@@ -38,52 +39,12 @@
         </header>
 
         <main>
-            <!---------- Contacts section ---------->
-            <section class="personalities">
-                <h1>Наши контакты</h1>
-                <div>
-                    <div class="person">
-                        <img src="{% static 'main/img/founder_1.jpg' %}" alt="Огнёв Илья">
-                        <h2>Огнев<br>Илья</h2>
-                        <p>Сооснователь Decety<br>
-                        IT руководитель</p>
-                    </div>
-                    <div class="person">
-                        <img src="{% static 'main/img/founder_2.jpeg' %}" alt="Бикбулатов Марк">
-                        <h2>Бикбулатов<br>Марк</h2>
-                        <p>Сооснователь Decety<br>
-                        Руководитель проекта</p>
-                    </div>
-                </div>
-            </section>
-
-            <!---------- Contacts section ---------->
-            <section class="contacts">
-                <h2>Телефоны</h2>
-                <p>+7 (992) 015-93-15  Илья<br>
-                +7 (982) 603-10-86  Марк</p>
-
-                <h2>E-mail</h2>
-                <p>info@decety.com</p>
-
-                <h2>Адрес</h2>
-                <p>г. Екатеринбург, Россия</p>
-            </section>
-
-            <!---------- Feedback section ---------->
-            <a id="feedback-form"></a>
-            <section class="feedback">
-                <h1>Форма обратной связи</h1>
-                <p>Задавайте вопросы, пишите предложения по сотрудничеству или по улучшению сервиса</p>
-
-                <form action="/done#feedback-form" method="POST" id="feedback-form">
-                    {% csrf_token %}
-                    <label><input type="text" placeholder="Имя" name="name"></label>
-                    <label><input type="tel" placeholder="Телефон" name="phone"></label>
-                    <label><input type="email" placeholder="Email" name="email"></label>
-                    <label><textarea placeholder="Сообщение" rows="4" name="message"></textarea></label>
-                    <input type="submit" value="Отправить">
-                </form>
+            <!---------- Service section ---------->
+            <section class="service">
+                <h1>Эта страница в разработке</h1>
+                <p>Если хотите узнать о процессе подробнее,
+                    <a href="/contacts#feedback-form" style="color: #1C1C1C">напишите нам</a>.
+                </p>
             </section>
         </main>
 
